@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+    app:
+        build:
+            context: ./
+            dockerfile: app.dockerfile
+        working_dir: /var/www
+        container_name: eestec-laravel-app
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - "database"
+    web:
+      build:
+          context: ./
+          dockerfile: web.dockerfile
+      working_dir: /var/www
+      container_name: eestec-web-server
+      volumes:
+          - ./:/var/www
+      ports:
+          - 80:80
+    database:
+      image: mariadb
+      container_name: eestec-database
+      environment:
+        MYSQL_DATABASE: ${DB_DATABASE}
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        MYSQL_PASSWORD: ${DB_PASSWORD}
+        MYSQL_USER: ${DB_USERNAME}
+      ports:
+        - 33061:3306
+      volumes:
+        - data:/var/lib/mysql
+    pma:
+      image: phpmyadmin:5.1
+      container_name: eestec-phpmyadmin
+      environment:
+          - PMA_ARBITRARY=1
+          - PMA_HOST=${DB_HOST}
+          - PMA_USER=${DB_USERNAME}
+          - PMA_PASSWORD=${DB_PASSWORD}
+          - PMA_PORT=${DB_PORT}
+      depends_on:
+          - database
+      ports:
+          - 8888:80
+volumes:
+    data:
