@@ -18,6 +18,6 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 
 Route::get('/backend', function () {
-    return view('backend.about');
+    return view('backend.blank');
 });
 
