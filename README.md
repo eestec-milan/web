@@ -9,6 +9,7 @@ To run the application you need installed:
 ## First setup
 1. Pull the project from Github
 2. In the project folder run `npm install`
+3. In the project folder run `composer update`
 
 ## Dev using Docker
 Docker container is used to test the application. To run it, open a terminal in the project directory and run `docker-compose up`.
