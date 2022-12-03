@@ -19,15 +19,15 @@ services:
       volumes:
           - ./:/var/www
       ports:
-          - 80:80
+          - 8000:80
     database:
       image: mariadb
       container_name: eestec-database
       environment:
-        MYSQL_DATABASE: ${DB_DATABASE}
-        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-        MYSQL_PASSWORD: ${DB_PASSWORD}
-        MYSQL_USER: ${DB_USERNAME}
+        MYSQL_DATABASE: web
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_PASSWORD: password
+        MYSQL_USER: user
       ports:
         - 33061:3306
       volumes:
@@ -37,10 +37,10 @@ services:
       container_name: eestec-phpmyadmin
       environment:
           - PMA_ARBITRARY=1
-          - PMA_HOST=${DB_HOST}
-          - PMA_USER=${DB_USERNAME}
-          - PMA_PASSWORD=${DB_PASSWORD}
-          - PMA_PORT=${DB_PORT}
+          - PMA_HOST=172.0.0.1
+          - PMA_USER=root
+          - PMA_PASSWORD=root
+          - PMA_PORT=3306
       depends_on:
           - database
       ports:
