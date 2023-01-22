@@ -7,7 +7,7 @@
      - [Routes](#routes) 
      - [Controllers](#controllers) 
      - [View](#view) 
-- [Boostrap](#boostrap)
+- [Tailwind CSS](#tailwind)
 - [Git Flow](#git-flow)
 # Laravel
 The folders you should care about for this project are:
@@ -184,15 +184,9 @@ This structure avoids html code repetitions. For every new page needed, we creat
 
 [More about views.](https://laravel.com/docs/9.x/views)
 
-<a name="boostrap"/></a>
-# Boostrap
-Boostrap is a toolkit that provides prebuilt grid systems and components for html pages. In this way we don't write raw CSS but instead use the provided CSS classes.
-
-In this project there two different themes for frontend and backend.
-1. [Frontend](https://drive.google.com/file/d/1951vZP5Zk6MFOe_6acoCPZtrdf5RJZra/view?usp=share_link) (there are some changes to do in the css to adapt the theme to design)
-2. [Backend theme](https://drive.google.com/file/d/1gQAgtGjDKkhkKW61bcDnkUn5GDf13tuk/view?usp=share_link)
-
-To add component in the page you're creating just inspect the theme files in the broswer and copy the snippet that you need.
+<a name="tailwind"/></a>
+# Tailwind
+The previous examples are based on boostrap, which we are not longer using it. Instead, we moved to [Tailwind CSS](https://tailwindcss.com/docs/utility-first).
 
 <a name="git"/></a>
 # Git Flow
