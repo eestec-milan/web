@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->text('image');
-            $table->timestamp('date')->nullable();
-            $table->string('location');
-            $table->decimal('pinX');
-            $table->decimal('pinY');
+            $table->string("name");
+            $table->string("description");
+            $table->string("location");
+            $table->dateTime("date");
+            $table->longText("image");
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('events');
     }
 };
