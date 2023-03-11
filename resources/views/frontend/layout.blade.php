@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
   <head>
 
@@ -8,23 +8,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>@yield('title')</title>
 
     <link rel="shortcut icon" href="{{asset('assets/img/favico.png')}}">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
+    @vite('resources/js/app.js')
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/frontend/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/frontend/css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="assets/frontend/css/owl.css">
-    <link rel="stylesheet" href="assets/frontend/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
 <!--
 
 TemplateMo 579 Cyborg Gaming
@@ -34,7 +30,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 -->
 </head>
 
-<body>
+<body class="bg-white dark:bg-black">
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -54,23 +50,50 @@ https://templatemo.com/tm-579-cyborg-gaming
   <!-- ***** Header Area End ***** -->
   @yield('content')
 
-
   @include('frontend.includes.footer')
 
-
-
   <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+      // Burger menus
+      document.addEventListener('DOMContentLoaded', function() {
+          // open
+          const burger = document.querySelectorAll('.navbar-burger');
+          const menu = document.querySelectorAll('.navbar-menu');
 
-  <script src="assets/frontend/js/isotope.min.js"></script>
-  <script src="assets/frontend/js/owl-carousel.js"></script>
-  <script src="assets/frontend/js/tabs.js"></script>
-  <script src="assets/frontend/js/popup.js"></script>
-  <script src="assets/frontend/js/custom.js"></script>
+          if (burger.length && menu.length) {
+              for (var i = 0; i < burger.length; i++) {
+                  burger[i].addEventListener('click', function() {
+                      for (var j = 0; j < menu.length; j++) {
+                          menu[j].classList.toggle('hidden');
+                      }
+                  });
+              }
+          }
 
+          // close
+          const close = document.querySelectorAll('.navbar-close');
+          const backdrop = document.querySelectorAll('.navbar-backdrop');
 
+          if (close.length) {
+              for (var i = 0; i < close.length; i++) {
+                  close[i].addEventListener('click', function() {
+                      for (var j = 0; j < menu.length; j++) {
+                          menu[j].classList.toggle('hidden');
+                      }
+                  });
+              }
+          }
+
+          if (backdrop.length) {
+              for (var i = 0; i < backdrop.length; i++) {
+                  backdrop[i].addEventListener('click', function() {
+                      for (var j = 0; j < menu.length; j++) {
+                          menu[j].classList.toggle('hidden');
+                      }
+                  });
+              }
+          }
+      });
+  </script>
   </body>
-
 </html>
