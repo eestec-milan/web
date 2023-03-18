@@ -14,14 +14,14 @@ Homepage
             </h1>
         </div>
 
-        <div class="flex justify-center mt-14 md:mx-40">
+        <div class="flex justify-center mt-14 md:mx-40 ml:mx-60">
                 <div class="grid grid-cols-1 grid-rows-2 gap-y-5">
                     <div class="grid grid-cols-12 gap-5">
                         <img src="{{asset("assets/images/img1.jpg")}}" class="object-none h-full col-start-1 col-end-5 rounded-lg">
                         <img src="{{asset("assets/images/img2.jpg")}}" class="object-none h-full col-start-5 col-end-10 rounded-lg">
                         <img src="{{asset("assets/images/img3.jpg")}}" class="object-none h-full col-start-10 col-end-13 rounded-lg">
                     </div>
-                    <div class="ms:mx-40 mx-50 grid grid-cols-12 gap-5">
+                    <div class="grid grid-cols-12 gap-5">
                         <img src="{{asset("assets/images/img4.jpg")}}" class="object-none h-full col-start-1 col-end-4 rounded-lg">
                         <img src="{{asset("assets/images/img5.jpg")}}" class="object-none h-full col-start-4 col-end-8 rounded-lg">
                         <img src="{{asset("assets/images/img6.jpg")}}" class="object-none h-full col-start-8 col-end-13 rounded-lg">
@@ -42,66 +42,88 @@ Homepage
             </div>
         </div>
 
-        <div class="justify-center mt-14 md:mx-40">
+        <div class="justify-center mt-14">
             <div>
                 <h1 class="text-center text-4xl text-white font-bold">EVENTS</h1>
             </div>
-            <div class="grid grid-cols-3 grid-rows-1 gap-5 mt-7">
-                <div class="bg-gray-dark rounded overflow-hidden shadow-lg">
-                    <img class="w-full" src="{{asset("assets/images/img1.jpg")}}">
-                    <div class="flex">
-                        <div class="text-center flex items-center justify-center w-24">
-                            <div class="px-4 py-4">
-                                <div class="text-s text-white font-medium">AUG</div>
-                                <div class="text-s text-white font-bold">25</div>
-                            </div>
-                        </div>
-                        <div class="px-4 py-4">
-                            <div class="font-bold text-m text-white">Title</div>
-                        </div>
-                    </div>
-                    <div class="items-center justify-center text-center w-full py-4">
-                        <p class="text-gray-light text-xs"> Event's description </p>
-                    </div>
+            <div class="flex flex-col gap-7 items-center justify-center p-5 pt-12 md:flex-row">
+                <div class="flex flex-col text-center xt-sm mt-7 w-3/4 md:text-lg md:w-1/4 md:mt-0">
+                    <img src="{{asset("assets/images/img4.jpg")}}" alt="" class="object-cover h-full rounded">
+                    <h1 class="text-red mt-3 font-bold text-m md:text-xl">Title</h1>
+                    <h2 class="text-gray-light text-s md:text-m">Event's description</h2>
                 </div>
-
-                <div class="bg-gray-dark rounded overflow-hidden shadow-lg">
-                    <img class="w-full" src="{{asset("assets/images/img1.jpg")}}">
-                    <div class="flex">
-                        <div class="text-center flex items-center justify-center w-24">
-                            <div class="px-4 py-4">
-                                <div class="text-s text-white font-medium">AUG</div>
-                                <div class="text-s text-white font-bold">25</div>
-                            </div>
-                        </div>
-                        <div class="px-4 py-4">
-                            <div class="font-bold text-s text-white mb-2">Title</div>
-                            <p class="text-gray-light text-xs"> Event's description </p>
-                        </div>
-                    </div>
+                <div class="flex flex-col text-center xt-sm mt-7 w-3/4 md:text-lg md:w-1/4 md:mt-0">
+                    <img src="{{asset("assets/images/img4.jpg")}}" alt="" class="object-cover h-full rounded">
+                    <h1 class="text-red mt-3 font-bold text-m md:text-xl">Title</h1>
+                    <h2 class="text-gray-light text-s md:text-m">Event's description</h2>
                 </div>
-
-                <div class="bg-gray-dark rounded overflow-hidden shadow-lg">
-                    <img class="w-full" src="{{asset("assets/images/img1.jpg")}}">
-                    <div class="flex">
-                        <div class="text-center flex items-center justify-center w-24">
-                            <div class="px-4 py-4">
-                                <div class="text-s text-white font-medium">AUG</div>
-                                <div class="text-s text-white font-bold">25</div>
-                            </div>
-                        </div>
-                        <div class="px-4 py-4">
-                            <div class="font-bold text-s text-white mb-2">Title</div>
-                            <p class="text-gray-light text-xs"> Event's description </p>
-                        </div>
-                    </div>
+                <div class="flex flex-col text-center xt-sm mt-7 w-3/4 md:text-lg md:w-1/4 md:mt-0">
+                    <img src="{{asset("assets/images/img4.jpg")}}" alt="" class="object-cover h-full rounded">
+                    <h1 class="text-red mt-3 font-bold text-m md:text-xl">Title</h1>
+                    <h2 class="text-gray-light text-s md:text-m">Event's description</h2>
                 </div>
             </div>
         </div>
 
+        <!--
+        <div class="justify-center mt-14 md:mx-40">
+            <div>
+                <h1 class="text-center text-4xl text-white font-bold">EVENTS</h1>
+            </div>
+
+            <div class="grid grid-cols-2 grid-rows-3 gap-y-7 mt-7">
+
+                <img class="w-full h-full" src="">
+
+                <div class="bg-gray-dark overflow-hidden shadow-lg text-center">
+                    <div class="px-4 py-2 mt-2">
+                        <p class="text-l text-white font-medium">AUGUST&nbsp;25</p>
+                    </div>
+                    <div class="px-4 py-4">
+                        <div class="font-bold text-xl text-red">Title</div>
+                        <p class="text-gray-light text-l"> Event's description </p>
+                    </div>
+                </div>
+
+                <img class="w-full h-full" src="">
+
+                <div class="bg-gray-dark overflow-hidden shadow-lg text-center">
+                    <div class="px-4 py-2 mt-2">
+                        <p class="text-l text-white font-medium">AUGUST&nbsp;25</p>
+                    </div>
+                    <div class="px-4 py-4">
+                        <div class="font-bold text-xl text-red">Title</div>
+                        <p class="text-gray-light text-l"> Event's description </p>
+                    </div>
+                </div>
+
+                <img class="w-full h-full" src="">
+
+                <div class="bg-gray-dark overflow-hidden shadow-lg text-center">
+                    <div class="px-4 py-2 mt-2">
+                        <p class="text-l text-white font-medium">AUGUST&nbsp;25</p>
+                    </div>
+                    <div class="px-4 py-4">
+                        <div class="font-bold text-xl text-red">Title</div>
+                        <p class="text-gray-light text-l"> Event's description </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        -->
+
         <div class="justify-center mt-12 md:mx-40">
             <div>
                 <h1 class="text-center text-4xl text-white font-bold">SPONSORS</h1>
+            </div>
+            <div class="flex flex-wrap justify-start justify-center w-full mt-7">
+                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
+                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
+                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
+                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
+                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
+                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
             </div>
         </div>
     </div>
