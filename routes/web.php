@@ -1,7 +1,6 @@
 <?php
 
 
-use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
