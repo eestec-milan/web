@@ -51,7 +51,7 @@ https://templatemo.com/tm-579-cyborg-gaming
   @yield('content')
 
   @include('frontend.includes.footer')
-
+  @yield('extra-scripts')
   <!-- Scripts -->
   <script>
       // Burger menus

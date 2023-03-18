@@ -6,46 +6,6 @@ About us
 
 
 @section('content')
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="page-content">
-        <div class="game-details">
-            <div class="row">
-              <div class="col-lg-12">
-                  <h2>WHO ARE WE? </h2>
-              </div>
-              <div class="col-lg-12">
-                <p class="text-white" style="text-align: center; margin-top: -10px; margin-bottom: 10px"> MESA - Milan Engineering Student Association - is a non-profit and apolitical organization
-                    with almost 100 active members<br> and more than 1000 passive members, from all of the engineering faculties at Politecnico di Milano.<br>
-                        MESA is part of a bigger association called EESTEC - Electrical Engineering Students’ European Association - <br>that has branches all around Europe,
-                            collaborating with 43 universities in 24 countries.</p>
-              </div>
-              <div class="row mt-5">
-                <div class="col-lg-4">
-                    <img src="assets/frontend/images/about1.jpg" alt="" style="border-radius: 20px; margin-bottom: 30px;">
-                    <p><h2><span class="red-text" style="color: red">100</span><br>MEMBERS</h2></p></div>
-                <div class="col-lg-4">
-                    <img src="assets/frontend/images/about2.jpg" alt="" style="border-radius: 20px; margin-bottom: 30px;">
-                    <p><h2><span class="red-text" style="color: red">43</span><br>UNIVERSITIES</h2></p></div>
-                <div class="col-lg-4">
-                    <img src="assets/frontend/images/about3.jpg" alt="" style="border-radius: 20px; margin-bottom: 30px;">
-                    <p><h2><span class="red-text" style="color: red">69420</span><br>NUMBERS</h2></p> </div>
-              </div>
-              <div class="col-lg-12">
-                  <h2>WHAT DO WE DO? </h2>
-                  <p class="text-white" style="text-align: center; margin-top: -10px">Our hh goal is the improvement of hard and soft skills through local and international events,<br>
-                      such as: training hh sessions, team working, hackathons, workshops, challenges and much more.
-                  </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->
 
 <div class="flex flex-col justify-center text-white p-6 md:my-10">
 

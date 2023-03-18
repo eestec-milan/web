@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MeetingController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\MemberController;
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/test', [MeetingController::class, 'index'])->name('test');
+Route::get('/events', [EventsController::class, 'index'])->name('events');
 
 // Meetings
 Route::post('/meetings/save', [MeetingController::class, 'save'])->name('saveMeeting');
