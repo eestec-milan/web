@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
   <head>
 
@@ -9,9 +9,6 @@
 
     <title>@yield('title')</title>
 
-    <link rel="shortcut icon" href="{{asset('assets/img/favico.png')}}">
-
-
   <link rel="shortcut icon" href="{{asset('assets/img/favico.png')}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,16 +17,10 @@
   <!-- Bootstrap core CSS -->
   @vite('resources/js/app.js')  <!-- Additional CSS Files -->
 
-<!--
 
-TemplateMo 579 Cyborg Gaming
-
-https://templatemo.com/tm-579-cyborg-gaming
-
--->
 </head>
 
-<body>
+<body class="bg-white dark:bg-black">
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -49,10 +40,51 @@ https://templatemo.com/tm-579-cyborg-gaming
   <!-- ***** Header Area End ***** -->
   @yield('content')
 
-
   @include('frontend.includes.footer')
 
 
-  </body>
+  <!-- Scripts -->
+  <script>
+      // Burger menus
+      document.addEventListener('DOMContentLoaded', function() {
+          // open
+          const burger = document.querySelectorAll('.navbar-burger');
+          const menu = document.querySelectorAll('.navbar-menu');
 
+          if (burger.length && menu.length) {
+              for (var i = 0; i < burger.length; i++) {
+                  burger[i].addEventListener('click', function() {
+                      for (var j = 0; j < menu.length; j++) {
+                          menu[j].classList.toggle('hidden');
+                      }
+                  });
+              }
+          }
+
+          // close
+          const close = document.querySelectorAll('.navbar-close');
+          const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+          if (close.length) {
+              for (var i = 0; i < close.length; i++) {
+                  close[i].addEventListener('click', function() {
+                      for (var j = 0; j < menu.length; j++) {
+                          menu[j].classList.toggle('hidden');
+                      }
+                  });
+              }
+          }
+
+          if (backdrop.length) {
+              for (var i = 0; i < backdrop.length; i++) {
+                  backdrop[i].addEventListener('click', function() {
+                      for (var j = 0; j < menu.length; j++) {
+                          menu[j].classList.toggle('hidden');
+                      }
+                  });
+              }
+          }
+      });
+  </script>
+  </body>
 </html>
