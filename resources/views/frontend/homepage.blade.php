@@ -38,7 +38,7 @@ Homepage
                     In sit amet leo non ligula vestibulum vestibulum. <br> Pellentesque ac dui arcu. Sed pellentesque ligula non ipsum ullamcorper,
                     elementum convallis augue accumsan. Suspendisse potenti. <br> Curabitur ac leo at tellus auctor imperdiet. Etiam nec interdum augue.
                     In pretium massa libero, et semper diam laoreet non.</p>
-                <a href="about.blade.php" class="mt4 justify-center text-s text-red">Check out more ...</a>
+                <a href="{{route('about')}}" class="mt4 justify-center text-s text-red">Check out more ...</a>
             </div>
         </div>
 
