@@ -13,5 +13,6 @@ auth.json
 npm-debug.log
 yarn-error.log
 .package-lock.json
+.composer.lock
 /.idea
 /.vscode
