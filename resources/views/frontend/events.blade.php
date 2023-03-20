@@ -36,11 +36,9 @@
     <div class="grid grid-cols-4 mx-32 md:my-20" id="events-gallery">
 
         @foreach($events as $event)
-        <div class="event-card mx-4" >
+        <div class="event-card mx-4 cursor-pointer" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->title}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}')">
             <div class="max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
-                <a href="#">
-                    <img class="rounded-lg rounded-b-none" src="{{asset('assets/frontend/images/gattini-foto-19.jpg')}}" alt="" />
-                </a>
+                <img class="rounded-lg rounded-b-none" src="{{asset('assets/frontend/images/sms.png')}}" alt="" />
                 <div class="flex justify-between p-3">
                     <div class="w-2/5 text-center font-bold p-2 align-middle"><p class="text-red font-bold text-sm md:text-lg event-year">{{\Carbon\Carbon::parse($event->date)->translatedFormat('Y')}}</p>
                         <p class="text-xs md:text-sm text-white">{{\Carbon\Carbon::parse($event->date)->translatedFormat('d M')}}</p></div>
@@ -57,47 +55,42 @@
 
     </div>
 
-    <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
-        Open regular modal
-    </button>
-    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
-        <div class="relative w-auto my-6 mx-auto max-w-3xl">
+    <div class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" style="display:none" id="modal-id">
+
+        <div class="relative w-full my-6 mx-auto max-w-3xl" id="modal-card">
             <!--content-->
-            <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <div class="border-b-4 border-red relative flex flex-col " >
+                <img class="rounded-lg rounded-b-none h-96 object-cover object-center" src="{{asset('assets/frontend/images/sms.png')}}" alt="" />
+            </div>
+            <div class="border-0 rounded-b-lg shadow-lg relative flex flex-col w-full bg-gray-dark text-white p-6">
                 <!--header-->
-                <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                    <h3 class="text-3xl font-semibold">
-                        Modal Title
-                    </h3>
-                    <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('modal-id')">
-          <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-            ×
-          </span>
-                    </button>
+                <div class="flex items-start justify-between px-5 pt-4">
+                    <h4 class="text-red text-xs font-semibold" id="modal-event-date">
+                        Date
+                    </h4>
                 </div>
+                <div class="flex items-start justify-between px-5 pt-1">
+                    <h3 class="text-xl font-semibold" id="modal-event-title">
+                        Title
+                    </h3>
+                </div>
+
                 <!--body-->
-                <div class="relative p-6 flex-auto">
-                    <p class="my-4 text-slate-500 text-lg leading-relaxed">
-                        I always felt like I could do anything. That’s the main
-                        thing people are controlled by! Thoughts- their perception
-                        of themselves! They're slowed down by their perception of
-                        themselves. If you're taught you can’t do anything, you
-                        won’t do anything. I was taught I could do everything.
+                <div class="relative px-5 pt-2 flex-auto">
+                    <p class="my-4 text-slate-300 text-base" id="modal-event-description">
+                        Description
                     </p>
                 </div>
                 <!--footer-->
-                <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-                    <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
-                        Close
-                    </button>
-                    <button class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
-                        Save Changes
+                <div class="flex items-center justify-center py-4">
+                    <button class="bg-red rounded text-white text-base font-semibold uppercase p-3" type="button" onclick="toggleModal('modal-id')">
+                        Register to event
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
+    <div class="opacity-75 fixed inset-0 z-40 bg-black" id="modal-id-backdrop" style="display:none"></div>
 
 @endsection
 
@@ -108,6 +101,7 @@
         crossorigin="anonymous"></script>
 <script src="{{asset("assets/js/shufflejs/dist/shuffle.js")}}"></script>
 <script>
+
     let shuffleInstance;
     const Shuffle = window.Shuffle; // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).        $(document).ready(function() {
     $(document).ready(function() {
@@ -116,7 +110,7 @@
 
     shuffleInstance = new Shuffle(element, {
         itemSelector: '.event-card',
-        speed: 1000
+        speed: 500
     });
 
     });
@@ -147,22 +141,29 @@
 
             return titleText.includes(searchText);
         });
-        /*
-        $("#course-number").html(shuffleInstance.visibleItems + " corsi");
-        if(shuffleInstance.visibleItems == 0)
-            $("#course-notfound").removeClass('visually-hidden');
-        else                $("#course-notfound").addClass('visually-hidden');
-        }
-        */
     }
 </script>
 
     <script type="text/javascript">
-        function toggleModal(modalID){
-            document.getElementById(modalID).classList.toggle("hidden");
-            document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-            document.getElementById(modalID).classList.toggle("flex");
-            document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+
+        function toggleModal(id,description,date){
+            $("#modal-event-title").text($('#event-'+id + ' .event-name').text());
+            $("#modal-event-description").text(description);
+            $("#modal-event-date").text(date);
+            $("body").addClass('overflow-y-hidden');
+
+            $("#modal-id").fadeIn();
+            $("#modal-id-backdrop").fadeIn();
+
         }
+
+       window.addEventListener('click', function(e) {
+
+            if ($(e.target).attr('id') == "modal-id"){
+                $("body").removeClass('overflow-y-hidden');
+                $("#modal-id").fadeOut();
+                $("#modal-id-backdrop").fadeOut();
+            }
+        });
     </script>
 @endsection

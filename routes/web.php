@@ -19,6 +19,8 @@ use App\Http\Controllers\MemberController;
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/test', [MeetingController::class, 'index'])->name('test');
+Route::get('/', [MeetingController::class, 'index'])->name('homepage');
+
 Route::get('/events', [EventsController::class, 'index'])->name('events');
 
 // Meetings
