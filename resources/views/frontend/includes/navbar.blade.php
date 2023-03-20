@@ -12,9 +12,9 @@
     </div>
     <ul class="hidden absolute top-1/2 right-0 transform -translate-y-1/2 -translate-x-1/2
                     lg:flex lg:mx-auto lg:flex lg:items-right lg:w-auto lg:space-x-6 dark:text-white">
-        <li><a class="text-sm hover:text-gray-500 font-bold text-xl" href="#">Home</a></li>
-        <li><a class="text-sm text-red font-bold text-xl" href="#">About us</a></li>
-        <li><a class="text-sm hover:text-gray-500 font-bold text-xl" href="#">Events</a></li>
+        <li><a class="text-sm {{ request()->routeIs('homepage') ? 'text-red' : ''}} hover:underline hover:decoration-2 hover:underline-offset-8 hover:decoration-red font-bold text-xl" href="{{route('homepage')}}">Home</a></li>
+        <li><a class="text-sm {{ request()->routeIs('about') ? 'text-red' : ''}} hover:underline hover:decoration-2 hover:underline-offset-8 hover:decoration-red font-bold text-xl" href="{{route('about')}}">About us</a></li>
+        <li><a class="text-sm {{ request()->routeIs('events') ? 'text-red' : ''}} hover:underline hover:decoration-2 hover:underline-offset-8 hover:decoration-red font-bold text-xl" href="{{route('events')}}">Events</a></li>
     </ul>
 </nav>
 <div class="navbar-menu relative z-50 hidden">
