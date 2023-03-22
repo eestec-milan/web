@@ -13,7 +13,7 @@ To run the application you need installed:
 
 # Run the application
 Since we moved to Tailwind CSS, to run the application you should do:
-1. `composer-compose up`
+1. `docker-compose up`
 2. On another shell, `npm run dev` (for Tailwind CSS realtime changes)
 
 To do this process automatically, depending on your IDE you could:
