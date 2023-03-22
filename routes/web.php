@@ -1,10 +1,9 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EventsController;
-
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\MemberController;
 
@@ -46,6 +45,10 @@ Route::get('/members/email/{email}', [MemberController::class, 'getByEmail'])->n
 Route::put('/members/update', [MemberController::class, 'update'])->name('updateMember');
 Route::delete('/members/{memberId}', [MemberController::class, 'delete'])->name('deleteMember');
 
+
+Route::get("/test", function (){
+    return view("backend.test");
+});
 
 Route::get('/backend', function () {
     return view('backend.blank');
