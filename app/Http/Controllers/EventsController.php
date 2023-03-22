@@ -31,7 +31,7 @@ class EventsController extends Controller
     function store(EventRequest $request)
     {
 
-        Log::debug(' Storing......');
+
         $validated = $request->validated();
         $imgFile = $request->file("imgFile");
         if (is_null($imgFile)) {
@@ -41,13 +41,13 @@ class EventsController extends Controller
         $event = $this->buildEvent($event, $validated, $imgFile);
         $event->save();
 
-        return "created with id {$event->id}";
+        return $event;
     }
 
 // Update
-    function update(EventRequest $request, )
+    function update(EventRequest $request,$id )
     {
-        $id = $request->input("id");
+        Log::debug("Update");
         $validated = $request->validated();
         if(count($validated) < 4){
             abort(422);
@@ -61,7 +61,7 @@ class EventsController extends Controller
 
         $event->update();
 
-        return view("test")->with("event", $event);
+        return $event;
     }
 
 // Read
@@ -72,7 +72,7 @@ class EventsController extends Controller
             abort(404);
         }
 
-        return response()->json($event);
+        return $event;
     }
 
     function getAll()
@@ -81,7 +81,15 @@ class EventsController extends Controller
         if (count($events) === 0) {
             abort(404);
         }
-        return response()->json($events);
+        return $events;
+    }
+
+
+    // Delete
+
+    function  delete($id){
+        Event::destroy($id);
+        return response(null, 204);
     }
 
 

@@ -17,12 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-// API Tests
 
-Route::post("/events", [EventsController::class, "store"])->name("createEvent");
-Route::get("/events/{id:int}", [EventsController::class, "getById"])->name("getEventById");
-Route::get("/events", [EventsController::class, "getAll"])->name("getEvents");
-Route::put("/events/{id:int}", [EventsController::class, "update"])->name("updateEvent");
 Route::get("/test", function (){
     return view("backend.test");
 });
