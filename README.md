@@ -20,7 +20,7 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How to use</a>
+  <a href="#contribute">Contribute</a>
 </p>
 
 
@@ -36,7 +36,7 @@ This for the board/active members:
 * **Meeting manager** register general meetings and keep tracks of members by generating QR code for attendance registration
 * **Events manager** create/update/delete local branch events information
 
-## How To Use
+## Contribute
 
 ### Prerequisites
 To start developing this application, you first need the following software installed:
@@ -58,3 +58,23 @@ Since we moved to Tailwind CSS, to run the application you should do:
 We recommend to use PHPStorm as developing IDE, in this case in the folder `.run` are already present automatic run configurations. Select `Start` configuration and click on the run icon.
 
 ![run](https://user-images.githubusercontent.com/41386882/227204339-ee34b42e-bab2-4397-94ef-985b51e0e314.gif)
+
+### Commit convention
+The commit message must have this structure:
+```
+<type>: <summary>
+```
+`<type>` is one of the following keyword:
+* `fix` patch a bug
+* `feat` introduce a new feature
+* `build` changes that affect the build system or external dependencies (example scopes: npm)
+* `ci` changes to our CI configuration files and scripts 
+* `docs` changes the documentation
+* `refactor` a code change which is neither a bug fix or a new feature
+
+`summary`: In present tense. Not capitalized. No period at the end.
+
+Example:
+```
+feat: add homepage view
+```
