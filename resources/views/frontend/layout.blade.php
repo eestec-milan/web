@@ -41,6 +41,7 @@
   @yield('content')
 
   @include('frontend.includes.footer')
+
   @yield('extra-scripts')
 
   <!-- Scripts -->

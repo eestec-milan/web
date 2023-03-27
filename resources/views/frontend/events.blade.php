@@ -8,8 +8,7 @@
 @section('content')
 
 
-
-    <div class="mx-60  pt-12">
+    <div class="mx-60 md:py-16 pt-12">
         <div class="flex">
             <select class="block appearance-none search-year w-full bg-white border-0 hover:border-gray-500 accent-red w-2/12 px-4 py-2 pr-8 rounded-l-md shadow leading-tight focus:border-0 focus:ring-0">
                 <option class="rounded-0" value="0">All years</option>
@@ -33,7 +32,7 @@
 
 
 
-    <div class="grid grid-cols-4 mx-32 md:my-20" id="events-gallery">
+    <div class="grid grid-cols-4 mx-32 md:my-12 md:pb-16" id="events-gallery">
 
         @foreach($events as $event)
         <div class="event-card mx-4 cursor-pointer" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->title}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}')">
@@ -57,7 +56,7 @@
 
     <div class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" style="display:none" id="modal-id">
 
-        <div class="relative w-full my-6 mx-auto max-w-3xl" id="modal-card">
+        <div class="relative w-full my-6 mb-16 mx-auto max-w-3xl" id="modal-card">
             <!--content-->
             <div class="border-b-4 border-red relative flex flex-col " >
                 <img class="rounded-lg rounded-b-none h-96 object-cover object-center" src="{{asset('assets/frontend/images/sms.png')}}" alt="" />

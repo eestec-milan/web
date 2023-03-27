@@ -6,9 +6,11 @@ Homepage
 
 
 @section('content')
+    <div class="flex flex-col justify-center text-white p-6 md:my-10">
+
     <div class="bg-black text-white p-4">
         <div class="flex justify-center">
-            <h1 class="text-center text-4xl font-bold">
+            <h1 class="text-center text-4xl md:pt-6 mb-4 font-bold">
                 <span class="text-red">LEARN.&nbsp;</span> <span class="text-white">TRAVEL.&nbsp;</span>
                 <span class="text-red">MAKE FRIENDS.&nbsp;</span> <span class="text-white">IMPROVE YOURSELF.</span>
             </h1>
@@ -29,22 +31,22 @@ Homepage
                 </div>
         </div>
 
-        <div class="justify-center mt-14 md:mx-40">
+        <div class="justify-center mt-20 md:py-20 md:mx-40">
             <div>
                 <h1 class="text-center text-4xl text-white font-bold">ABOUT US</h1>
             </div>
             <div class="justify-center text-center mt-7">
-                <p class="justify-center text-s text-white mt-6"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Integer iaculis sagittis tellus sit amet mattis.
+                <p class="justify-center text-s text-white mt-6 md:text-lg"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Integer iaculis sagittis tellus sit amet mattis.
                     In sit amet leo non ligula vestibulum vestibulum. <br> Pellentesque ac dui arcu. Sed pellentesque ligula non ipsum ullamcorper,
                     elementum convallis augue accumsan. Suspendisse potenti. <br> Curabitur ac leo at tellus auctor imperdiet. Etiam nec interdum augue.
                     In pretium massa libero, et semper diam laoreet non.</p>
-                <a href="{{route('about')}}" class="mt4 justify-center text-s text-red">Check out more ...</a>
+                <a href="{{route('about')}}" class="mt4 justify-center text-s text-red md:text-lg">Check out more ...</a>
             </div>
         </div>
 
-        <div class="justify-center mt-14">
+        <div class="justify-center my-20">
             <div>
-                <h1 class="text-center text-4xl text-white font-bold">EVENTS</h1>
+                <h1 class="text-center text-4xl text-white font-bold mt-20">EVENTS</h1>
             </div>
             <div class="flex flex-col gap-7 items-center justify-center p-5 pt-12 md:flex-row">
                 <div class="flex flex-col text-center xt-sm mt-7 w-3/4 md:text-lg md:w-1/4 md:mt-0">
@@ -64,6 +66,7 @@ Homepage
                 </div>
             </div>
         </div>
+    </div>
 
         <!--
         <div class="justify-center mt-14 md:mx-40">
@@ -113,7 +116,7 @@ Homepage
         </div>
         -->
 
-        <div class="justify-center mt-12 md:mx-40">
+        <div class="justify-center mb-16 md:mx-40 md:mt-20">
             <div>
                 <h1 class="text-center text-4xl text-white font-bold">SPONSORS</h1>
             </div>
