@@ -33,7 +33,6 @@ class EventsController extends Controller
     function store(EventRequest $request)
     {
 
-
         $validated = $request->validated();
         $imgFile = $request->file("imgFile");
         if (is_null($imgFile)) {

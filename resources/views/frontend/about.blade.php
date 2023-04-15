@@ -21,15 +21,15 @@ About us
 
     <div class="flex flex-col gap-12 items-center justify-center p-5 py-20 md:flex-row">
         <div class="flex flex-col text-base text-center font-bold md:text-lg md:w-1/4">
-            <img src="assets/frontend/images/about1.jpg" alt="" class="object-cover h-full rounded">
+            <img src="assets/images/people/img1.jpg" alt="" class="object-cover h-full rounded">
             <h1 class="mt-4 md:text-4xl md:mt-20"><span class="text-red">100</span><br>MEMBERS</h1>
         </div>
         <div class="flex flex-col font-bold mt-9 text-center text-sm md:text-lg md:w-1/4 md:mt-0">
-            <img src="assets/frontend/images/about2.jpg" alt="" class="object-cover h-full rounded">
+            <img src="assets/images/people/img2.jpg" alt="" class="object-cover h-full rounded">
             <h1 class="mt-4 md:text-4xl md:mt-20"><span class="text-red">43</span><br>UNIVERSITIES</h1>
         </div>
         <div class="flex flex-col font-bold mt-9 text-center xt-sm md:text-lg md:w-1/4 md:mt-0">
-            <img src="assets/frontend/images/about3.jpg" alt="" class="object-cover h-full rounded">
+            <img src="assets/images/people/img6.jpg" alt="" class="object-cover h-full rounded">
             <h1 class="mt-4 md:text-4xl md:mt-20"><span class="text-red">69420</span><br>NUMBERS</h1>
         </div>
     </div>
@@ -40,7 +40,7 @@ About us
                 such as: training sessions, team working, hackathons, workshops, challenges and much more.
         </p>
     </div>
-
+    <!--
     <div class="py-20">
         <h1 class="text-center font-bold md:text-4xl">PROJECTS</h1>
         <div class="flex flex-col gap-12 items-center justify-center p-5 md:flex-row">
@@ -65,6 +65,8 @@ About us
             </div>
         </div>
     </div>
+    -->
+    
     <h1 class="text-center font-bold pt-32 pb-6 md:text-4xl">CONTACT US</h1>
 
 

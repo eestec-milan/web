@@ -19,14 +19,14 @@ Homepage
         <div class="flex justify-center mt-14 md:mx-40 ml:mx-60">
                 <div class="grid grid-cols-1 grid-rows-2 gap-y-5">
                     <div class="grid grid-cols-12 gap-5">
-                        <img src="{{asset("assets/images/img1.jpg")}}" class="object-none h-full col-start-1 col-end-5 rounded-lg">
-                        <img src="{{asset("assets/images/img2.jpg")}}" class="object-none h-full col-start-5 col-end-10 rounded-lg">
-                        <img src="{{asset("assets/images/img3.jpg")}}" class="object-none h-full col-start-10 col-end-13 rounded-lg">
+                        <img src="{{asset("assets/images/people/img1.jpg")}}" class="object-center object-cover h-full col-start-1 col-end-5 rounded-lg">
+                        <img src="{{asset("assets/images/people/img2.jpg")}}" class="object-center object-cover h-full col-start-5 col-end-10 rounded-lg">
+                        <img src="{{asset("assets/images/people/img3.jpg")}}" class="object-center object-cover h-full col-start-10 col-end-13 rounded-lg">
                     </div>
                     <div class="grid grid-cols-12 gap-5">
-                        <img src="{{asset("assets/images/img4.jpg")}}" class="object-none h-full col-start-1 col-end-4 rounded-lg">
-                        <img src="{{asset("assets/images/img5.jpg")}}" class="object-none h-full col-start-4 col-end-8 rounded-lg">
-                        <img src="{{asset("assets/images/img6.jpg")}}" class="object-none h-full col-start-8 col-end-13 rounded-lg">
+                        <img src="{{asset("assets/images/people/img4.jpg")}}" class="object-center object-cover h-full col-start-1 col-end-4 rounded-lg">
+                        <img src="{{asset("assets/images/people/img5.jpg")}}" class="object-center object-cover h-full col-start-4 col-end-8 rounded-lg">
+                        <img src="{{asset("assets/images/people/img6.jpg")}}" class="object-center object-cover h-full col-start-8 col-end-13 rounded-lg">
                     </div>
                 </div>
         </div>
@@ -118,15 +118,18 @@ Homepage
 
         <div class="justify-center mb-16 md:mx-40 md:mt-20">
             <div>
-                <h1 class="text-center text-4xl text-white font-bold">SPONSORS</h1>
+                <h1 class="text-center text-4xl text-white font-bold">PARTNERS</h1>
             </div>
             <div class="flex flex-wrap justify-start justify-center w-full mt-7">
-                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
-                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
-                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
-                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
-                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
-                <img src="{{asset("assets/images/spns.png")}}" class="object-fill h-40 w-40 m-3">
+                <a href="https://www.a2aenergia.eu/" target="_blank"><img src="{{asset("assets/images/partners/a2a.svg")}}" class="object-fill h-40 w-40 m-3"></a>
+                <a href="https://bendingspoons.com/" target="_blank"><img src="{{asset("assets/images/partners/bending_spoons.png")}}" class="object-fill h-40 w-40 m-3"></a>
+                <a href="https://www.cefriel.com/" target="_blank"><img src="{{asset("assets/images/partners/cefriel.png")}}" class="object-fill h-40 w-40 m-3"></a>
+                <a href="https://www.esselunga.it/cms/homepage.html" target="_blank"><img src="{{asset("assets/images/partners/esselunga.svg")}}" class="object-fill h-40 w-40 m-3"></a>
+                <a href="https://www.gft.com/it/it" target="_blank"><img src="{{asset("assets/images/partners/gft.svg")}}" class="object-fill h-40 w-40 m-3"></a>
+                <a href="https://www.haier-europe.com/" target="_blank"><img src="{{asset("assets/images/partners/haier.svg")}}" class="object-fill h-40 w-40 m-3"></a>
+                <a href="https://havasmediagroup.com/" target="_blank"><img src="{{asset("assets/images/partners/havas.svg")}}" class="object-fill h-40 w-40 m-3"></a>
+                <a href="https://www.infineon.com/" target="_blank"><img src="{{asset("assets/images/partners/infineon.svg")}}" class="object-fill h-40 w-40 m-3"></a>
+                <a href="https://www.redbull.com" target="_blank"><img src="{{asset("assets/images/partners/redbull.svg")}}" class="object-fill h-40 w-40 m-3"></a>
             </div>
         </div>
     </div>
