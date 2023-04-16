@@ -10,7 +10,7 @@
 
     <div class="mx-60 md:py-16 pt-12">
         <div class="flex">
-            <select class="block appearance-none search-year w-full bg-white border-0 hover:border-gray-500 accent-red w-2/12 px-4 py-2 pr-8 rounded-l-md shadow leading-tight focus:border-0 focus:ring-0">
+            <select class="block appearance-none search-year bg-white border-0 hover:border-gray-500 accent-red w-2/12 px-4 py-2 pr-8 rounded-l-md shadow leading-tight focus:border-0 focus:ring-0">
                 <option class="rounded-0" value="0">All years</option>
                 @foreach($years as $year)<option class="rounded-0">{{$year->year}}</option> @endforeach
             </select>
