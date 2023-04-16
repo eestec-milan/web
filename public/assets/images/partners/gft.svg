@@ -1,0 +1,35 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900">
+	<title>gft-svg</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m0 612.78h900v-326.78h-900z"/>
+		</clipPath>
+	</defs>
+	<style>
+		.s0 { fill: #ffffff } 
+		.s1 { fill: #1f4fa3 } 
+		.s2 { fill: #bdbcbc } 
+	</style>
+	<g id="layer1">
+		<g id="g2503">
+			<path id="path43" class="s0" d="m0 612.8h900v-326.8h-900z"/>
+			<path id="path45" class="s1" d="m0 612.8h900v-326.8h-900z"/>
+			<g id="g47">
+				<g id="Clip-Path: g49" clip-path="url(#cp1)">
+					<g id="g49">
+						<g id="g55">
+							<path id="path57" class="s0" d="m185.1 460.5v-20.4h78.6v81.7q-39.8 16.2-81.3 16.2-46.8 0-73.3-24.6-26.5-24.7-26.5-63.6 0-39.2 25.4-63.7 25.4-24.5 71.9-24.5 34.2 0 56.1 11 22 10.9 25.8 36.4h-25.8q-3.8-14.5-17.6-21.3-13.9-6.8-37.2-6.8-33.6 0-53.3 19.2-19.5 19.3-19.5 49.7 0 30 19.9 49.4 20 19.5 55.8 19.5 29.6 0 55.3-10.6v-47.6z"/>
+						</g>
+						<g id="g59">
+							<path id="path61" class="s0" d="m306.7 533.6v-167.6h119.3v20.6h-95v53.5h89.7v20.4h-89.7v73.1z"/>
+						</g>
+						<g id="g63">
+							<path id="path65" class="s0" d="m451.7 366h166.8v20.6h-71.3v147h-24.3v-147h-71.2z"/>
+						</g>
+						<path id="path67" class="s2" d="m652.2 366h167.6v167.6h-167.6z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

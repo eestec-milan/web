@@ -1,6 +1,6 @@
 <nav class="relative px-8 py-8 flex justify-items-end bg-white dark:bg-black pl-10">
-    <a class="flex items-center md:pl-12 md:text-3xl font-bold leading-none" href="#">
-        <img class="w-24 md:w-40" src="{{asset('assets/frontend/images/mesa-logo.svg')}}">
+    <a class="flex items-center md:pl-12 md:text-3xl font-bold leading-none" href="{{route('homepage')}}">
+        <img class="w-24 md:w-40" src="{{asset('assets/images/mesa-logo.svg')}}">
     </a>
     <div class="lg:hidden ml-auto">
         <button class="navbar-burger flex justify-end text-blue-600 p-3">

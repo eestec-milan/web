@@ -8,8 +8,7 @@
 @section('content')
 
 
-
-    <div class="mx-60  pt-12">
+    <div class="mx-60 md:py-16 pt-12">
         <div class="flex">
             <select class="block appearance-none search-year w-full bg-white border-0 hover:border-gray-500 accent-red w-2/12 px-4 py-2 pr-8 rounded-l-md shadow leading-tight focus:border-0 focus:ring-0">
                 <option class="rounded-0" value="0">All years</option>
@@ -33,17 +32,17 @@
 
 
 
-    <div class="grid grid-cols-4 mx-32 md:my-20" id="events-gallery">
+    <div class="grid grid-cols-4 mx-32 md:my-12 md:pb-16" id="events-gallery">
 
         @foreach($events as $event)
-        <div class="event-card mx-4 cursor-pointer" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->title}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}')">
+        <div class="event-card mx-4 cursor-pointer" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->description}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}','{{$event->register_link != null ? $event->register_link : ""}}')">
             <div class="max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
-                <img class="rounded-lg rounded-b-none" src="{{asset('assets/frontend/images/sms.png')}}" alt="" />
+                <img class="object-cover rounded-lg rounded-b-none" src="{{$event->image}}" alt="" />
                 <div class="flex justify-between p-3">
                     <div class="w-2/5 text-center font-bold p-2 align-middle"><p class="text-red font-bold text-sm md:text-lg event-year">{{\Carbon\Carbon::parse($event->date)->translatedFormat('Y')}}</p>
                         <p class="text-xs md:text-sm text-white">{{\Carbon\Carbon::parse($event->date)->translatedFormat('d M')}}</p></div>
-                    <div class="w-3/5 text-left text-white p-1 md:p-2 align-middle md:mt-1"><p><span class="font-bold event-name">{{$event->location}}</span></p>
-                        <p class="text-xs md:mt-1 text-gray">Via Brombeis NAPOLI</p></div>
+                    <div class="w-3/5 text-left text-white p-1 md:p-2 align-middle md:mt-1"><p><span class="font-bold event-name">{{$event->name}}</span></p>
+                        <p class="text-xs md:mt-1 text-gray">{{$event->location}}</p></div>
                 </div>
             </div>
         </div>
@@ -57,10 +56,10 @@
 
     <div class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" style="display:none" id="modal-id">
 
-        <div class="relative w-full my-6 mx-auto max-w-3xl" id="modal-card">
+        <div class="relative w-full my-6 mb-16 mx-auto max-w-3xl" id="modal-card">
             <!--content-->
             <div class="border-b-4 border-red relative flex flex-col " >
-                <img class="rounded-lg rounded-b-none h-96 object-cover object-center" src="{{asset('assets/frontend/images/sms.png')}}" alt="" />
+                <img class="rounded-lg rounded-b-none h-96 object-cover object-center" id="modal-image" alt="" />
             </div>
             <div class="border-0 rounded-b-lg shadow-lg relative flex flex-col w-full bg-gray-dark text-white p-6">
                 <!--header-->
@@ -83,9 +82,9 @@
                 </div>
                 <!--footer-->
                 <div class="flex items-center justify-center py-4">
-                    <button class="bg-red rounded text-white text-base font-semibold uppercase p-3" type="button" onclick="toggleModal('modal-id')">
+                    <a target="blank" id="modal-link" class="cursor-pointer bg-red rounded text-white text-base font-semibold uppercase p-3" >
                         Register to event
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -146,10 +145,20 @@
 
     <script type="text/javascript">
 
-        function toggleModal(id,description,date){
+        function toggleModal(id,description,date,link){
             $("#modal-event-title").text($('#event-'+id + ' .event-name').text());
-            $("#modal-event-description").text(description);
+            $("#modal-event-description").html(description);
             $("#modal-event-date").text(date);
+            $("#modal-image").attr("src",$('#event-'+id+' img').attr('src'));
+            $("#modal-link").attr("href",link);
+            if(link=="")
+            {
+                $("#modal-link").addClass("cursor-not-allowed bg-gray-500 focus:outline-none opacity-50");
+                $("#modal-link").attr("href","#");
+            }
+            else
+                $("#modal-link").removeClass("cursor-not-allowed bg-gray-500 focus:outline-none opacity-50");
+
             $("body").addClass('overflow-y-hidden');
 
             $("#modal-id").fadeIn();
@@ -165,5 +174,14 @@
                 $("#modal-id-backdrop").fadeOut();
             }
         });
+
+        @if(isset($show_event_id))
+        $( document ).ready(function() {
+            $("#event-"+{{$show_event_id}}).click();
+        });
+        @endif
+
     </script>
+
+
 @endsection
