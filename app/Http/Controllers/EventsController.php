@@ -93,15 +93,23 @@ class EventsController extends Controller
         return response(null, 204);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $years = DB::table('meetings')
+        $years = DB::table('events')
             ->select(DB::raw('YEAR(date) as year'))
             ->distinct()
             ->orderBy('year', 'desc')
             ->get();
+
+        if($request->has("event"))
+            return view('frontend.events',[
+                'events'=>Event::orderBy('date', 'desc')->take(3)->get(),
+                'years'=>$years,
+                'show_event_id'=>$request->query("event")
+            ]);
+
         return view('frontend.events',[
-            'events'=>Meeting::all(),
+            'events'=>Event::orderBy('date', 'desc')->take(3)->get(),
             'years'=>$years
         ]);
     }

@@ -1,5 +1,5 @@
 <nav class="relative px-8 py-8 flex justify-items-end bg-white dark:bg-black pl-10">
-    <a class="flex items-center md:pl-12 md:text-3xl font-bold leading-none" href="#">
+    <a class="flex items-center md:pl-12 md:text-3xl font-bold leading-none" href="{{route('homepage')}}">
         <img class="w-24 md:w-40" src="{{asset('assets/images/mesa-logo.svg')}}">
     </a>
     <div class="lg:hidden ml-auto">

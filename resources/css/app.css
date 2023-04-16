@@ -5,7 +5,17 @@
 @tailwind utilities;
 
 @layer base {
-    h1{
+    h1 {
         @apply text-4xl;
+    }
+}
+
+@layer components {
+    .link {
+        @apply text-lg leading-6 transition-colors duration-150 hover:text-red font-bold
+    }
+
+    .link_disabled {
+        @apply cursor-not-allowed bg-gray-500 focus:outline-none opacity-60
     }
 }
