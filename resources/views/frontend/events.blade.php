@@ -8,7 +8,7 @@
 @section('content')
 
 
-    <div class="mx-60 md:py-16 pt-12">
+    <div class="mx-12 md:mx-60 py-10 md:py-16 pt-12">
         <div class="flex">
             <select class="block appearance-none search-year bg-white border-0 hover:border-gray-500 accent-red w-2/12 px-4 py-2 pr-8 rounded-l-md shadow leading-tight focus:border-0 focus:ring-0">
                 <option class="rounded-0" value="0">All years</option>
@@ -32,11 +32,11 @@
 
 
 
-    <div class="grid grid-cols-4 mx-32 md:my-12 md:pb-16" id="events-gallery">
+    <div class="grid grid-cols-3 mx-12 md:mx-32 md:my-12 md:pb-16" id="events-gallery">
 
         @foreach($events as $event)
-        <div class="event-card mx-4 cursor-pointer" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->description}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}','{{$event->register_link != null ? $event->register_link : ""}}')">
-            <div class="max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
+        <div class="event-card mx-4 cursor-pointer pb-6 md:pb-0" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->description}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}','{{$event->register_link != null ? $event->register_link : ""}}')">
+            <div class="max-w-md md:max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
                 <img class="object-cover rounded-lg rounded-b-none" src="{{$event->image}}" alt="" />
                 <div class="flex justify-between p-3">
                     <div class="w-2/5 text-center font-bold p-2 align-middle"><p class="text-red font-bold text-sm md:text-lg event-year">{{\Carbon\Carbon::parse($event->date)->translatedFormat('Y')}}</p>

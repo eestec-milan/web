@@ -36,21 +36,21 @@ Homepage
             <div class="pt-6 pb-20 md:pt-10">
                 <h1 class="text-center md:-4xl font-bold">ABOUT US</h1>
                 <p class="text-lg text-s md:text-lg text-center p-3 md:px-8 md:mt-5 md:mx-40"><span class="font-bold text-red">MESA</span> - Milan Engineering Student Association - is a non-profit and apolitical organization
-                    with almost 100 active members and more than 1000 passive members, from all of the engineering faculties at Politecnico di Milano. <br><a href="{{route('about')}}" class="link" >Check out more ...</a></p>
+                    with almost 100 active members and more than 1000 passive members, from all of the engineering faculties at Politecnico di Milano. <br><a href="{{route('about')}}" class="link text-lg" >Check out more ...</a></p>
 
             </div>
         </div>
 
-        <div class="justify-center my-20">
+        <div class="my-20">
             <div>
-                <h1 class="text-center text-4xl text-white font-bold mt-20">EVENTS</h1>
+                <h1 class="text-center text-4xl text-white font-bold">EVENTS</h1>
             </div>
-            <div class="grid grid-cols-3 mx-32 mt-7" id="events-gallery">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-12 md:mx-32 mt-6 md:my-12 md:pb-16" id="events-gallery">
 
                 @foreach($events as $event)
                     <a href="{{route('events')}}?event={{$event->id}}">
-                        <div class="event-card mx-4 cursor-pointer" id="event-{{$event->id}}">
-                            <div class="max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
+                        <div class="event-card pb-6 md:pb-0 mx-4 cursor-pointer" id="event-{{$event->id}}">
+                            <div class="max-w-md md:max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
                                 <img class="object-cover rounded-lg rounded-b-none" src="{{$event->image}}" alt="" />
                                 <div class="flex justify-between p-3">
                                     <div class="w-2/5 text-center font-bold p-2 align-middle"><p class="text-red font-bold text-sm md:text-lg event-year">{{\Carbon\Carbon::parse($event->date)->translatedFormat('Y')}}</p>

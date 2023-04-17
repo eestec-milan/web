@@ -19,10 +19,10 @@
 </nav>
 <div class="navbar-menu relative z-50 hidden">
     <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-    <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+    <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-gray-dark overflow-y-auto">
         <div class="flex items-center mb-8">
-            <a class="flex items-center md:pl-12 md:text-3xl font-bold leading-none" href="#">
-                <img class="w-24 md:w-40" src="{{asset('assets/frontend/images/mesa-logo.svg')}}">
+            <a class="flex items-center md:pl-12 md:text-3xl font-bold leading-none" href="{{route('homepage')}}">
+                <img class="w-24 md:w-40" src="{{asset('assets/images/mesa-logo.svg')}}">
             </a>
             <button class="navbar-close">
                 <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500">
@@ -33,13 +33,13 @@
         <div>
             <ul>
                 <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Home</a>
+                    <a class="block p-4 text-sm link rounded" href="{{route('homepage')}}">Home</a>
                 </li>
                 <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">About us</a>
+                    <a class="block p-4 text-sm link rounded" href="{{route('about')}}">About us</a>
                 </li>
                 <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Events</a>
+                    <a class="block p-4 text-sm link rounded" href="{{route('events')}}">Events</a>
                 </li>
             </ul>
         </div>

@@ -12,7 +12,7 @@
 
 @layer components {
     .link {
-        @apply text-lg leading-6 transition-colors duration-150 hover:text-red font-bold
+        @apply text-white leading-6 transition-colors duration-150 hover:text-red font-bold
     }
 
     .link_disabled {
