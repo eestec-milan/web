@@ -26,11 +26,11 @@ About us
         </div>
         <div class="flex flex-col font-bold mt-9 text-center text-sm md:text-lg md:w-1/4 md:mt-0">
             <img src="assets/images/people/img2.jpg" alt="" class="object-cover h-full rounded">
-            <h1 class="mt-4 md:text-4xl md:mt-20"><span class="text-red">43</span><br>UNIVERSITIES</h1>
+            <h1 class="mt-4 md:text-4xl md:mt-20"><span class="text-red">42</span><br>UNIVERSITIES</h1>
         </div>
         <div class="flex flex-col font-bold mt-9 text-center xt-sm md:text-lg md:w-1/4 md:mt-0">
             <img src="assets/images/people/img6.jpg" alt="" class="object-cover h-full rounded">
-            <h1 class="mt-4 md:text-4xl md:mt-20"><span class="text-red">69420</span><br>NUMBERS</h1>
+            <h1 class="mt-4 md:text-4xl md:mt-20"><span class="text-red">24</span><br>COUNTRIES</h1>
         </div>
     </div>
 
