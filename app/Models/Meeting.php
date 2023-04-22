@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Meeting extends Model
 {
-    use SoftDeletes;
     use HasFactory;
     public function members()
     {

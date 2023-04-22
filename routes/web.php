@@ -39,18 +39,14 @@ Route::delete('/meetings/attendancces/{attendanceId}', [MeetingController::class
 Route::post('/members/save', [MemberController::class, 'save'])->name('saveMember');
 Route::get('/members/attendances/{memberId}', [MemberController::class, 'getMemberAttendances'])
     ->name('getMemberAttendances');
-Route::get('/members', [MemberController::class, 'get'])->name('getMembers');
+Route::post('/members', [MemberController::class, 'get'])->name('dashboard.admin.users');
 Route::get('/members/{memberId}', [MemberController::class, 'getById'])->name('getMemberById');
 Route::get('/members/email/{email}', [MemberController::class, 'getByEmail'])->name('getMemberByEmail');
 Route::put('/members/update', [MemberController::class, 'update'])->name('updateMember');
-Route::delete('/members/{memberId}', [MemberController::class, 'delete'])->name('deleteMember');
+Route::delete('/members/{memberId}', [MemberController::class, 'delete'])->name('member.delete');
 
 
-Route::get("/test", function (){
-    return view("backend.test");
-});
-
-Route::get('/backend', function () {
+Route::get('/dashboard', function () {
     return view('backend.blank');
 });
 

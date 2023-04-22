@@ -9,3 +9,45 @@
         @apply text-4xl;
     }
 }
+
+@layer components{
+    .paginate_button {
+        @apply bg-red px-4 py-2 mx-1 text-white font-semibold rounded-lg cursor-pointer hover:bg-red-light
+    }
+
+    .dataTable{
+        @apply p-4 m-0 w-full text-left border-separate border-spacing-x-0 border-spacing-y-2
+    }
+
+    .dataTables_info{
+        @apply p-2 text-center
+    }
+
+    .dataTables_paginate{
+        @apply flex flex-row justify-center p-2 align-bottom
+    }
+
+    .dataTables_paginate span{
+        @apply flex align-bottom
+    }
+
+    .even,.odd{
+        @apply font-semibold hover:bg-gray-50
+    }
+
+    .even td,.odd td{
+        @apply p-4 first:rounded-tl-md first:rounded-bl-md last:rounded-tr-md last:rounded-br-md
+    }
+
+    .sorting_disabled{
+        @apply p-4 font-semibold text-sm text-gray-400
+    }
+
+    .dataTables_filter{
+        @apply flex justify-end
+    }
+
+    .dataTables_filter input{
+        @apply shadow-sm border text-gray-900 text-sm rounded-lg focus:ring-0 block w-full p-1 px-2
+    }
+}
