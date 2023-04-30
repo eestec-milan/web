@@ -29,24 +29,23 @@ Route::post('/meetings/save', [MeetingController::class, 'save'])->name('saveMee
 Route::post('/meetings/addAttendance', [MeetingController::class, 'addAttendance'])->name('saveAttendace');
 Route::get('/meetings', [MeetingController::class, 'get'])->name('getMeetings');
 Route::get('/meetings/{meetingId}', [MeetingController::class, 'getMeetingAttendances'])->name('getMeetingAttendances');
-Route::get('/members/{meetingId}', [MeetingController::class, 'getById'])->name('getMeetingIdById');
 Route::put('/meetings/update', [MeetingController::class, 'update'])->name('updateMeeting');
 Route::delete('/meetings/{meetingId}', [MeetingController::class, 'delete'])->name('deleteMeeting');
 Route::delete('/meetings/attendancces/{attendanceId}', [MeetingController::class, 'deleteAttendance'])
     ->name('deleteAttendance');
 
 // Members
-Route::post('/members/save', [MemberController::class, 'save'])->name('saveMember');
+Route::get('/members', [MemberController::class, 'index'])->name('member.index');
+Route::get('/members/create', [MemberController::class, 'create'])->name('member.create');
+Route::post('/members/create', [MemberController::class, 'save']);
 Route::get('/members/attendances/{memberId}', [MemberController::class, 'getMemberAttendances'])
     ->name('getMemberAttendances');
 Route::post('/members', [MemberController::class, 'get'])->name('dashboard.admin.users');
 Route::get('/members/{memberId}', [MemberController::class, 'getById'])->name('getMemberById');
 Route::get('/members/email/{email}', [MemberController::class, 'getByEmail'])->name('getMemberByEmail');
 Route::put('/members/update', [MemberController::class, 'update'])->name('updateMember');
+Route::get('/members/{meetingId}', [MeetingController::class, 'getById'])->name('getMeetingIdById');
 Route::delete('/members/{memberId}', [MemberController::class, 'delete'])->name('member.delete');
 
 
-Route::get('/dashboard', function () {
-    return view('backend.blank');
-});
 

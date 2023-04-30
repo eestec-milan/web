@@ -8,10 +8,10 @@
 @section('content')
     <div class="flex w-4/5 justify-right mx-20 ml-96 items-center h-1/2">
         <div class="bg-white p-6 mx-20 my-32 rounded-md w-full">
-            <h2 class="text-base p-8 pt-6 md:text-4xl md:pt-10 mb-4 font-bold">
-                MEMBERS
-                <button type="add" class="bg-black rounded text-white text-sm font-semibold uppercase p-2" class="fa-solid fa-plus"></i>Add</button>
+            <h2 class="text-base p-8 pt-6 md:text-4xl md:pt-10 font-bold">
+                MEMBERS <br>
             </h2>
+            <a href="{{route('member.create')}}" class="bg-green-600 rounded text-white text-sm font-semibold uppercase p-2 ml-8"><i class="fa-solid fa-plus"></i> Add</a>
             <table id="myTable">
                     <thead>
                     <tr>
@@ -68,6 +68,7 @@
 
                         },
                         success: function (data) {
+                            $('#myTable').DataTable().ajax.reload();
                         }
                     });
                     Swal.fire(

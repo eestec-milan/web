@@ -17,7 +17,8 @@ module.exports = {
         'dataTables_wrapper',
         'dataTables_paginate',
         'dataTables_info',
-        'sorting_disabled'
+        'sorting_disabled',
+        'bg-blue-600'
     ],
 darkMode: 'class',
   theme: {
