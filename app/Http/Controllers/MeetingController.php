@@ -5,26 +5,54 @@ namespace App\Http\Controllers;
 use App\Models\Attendance;
 use App\Models\Meeting;
 use App\Models\Member;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MeetingController extends Controller
 {
-    //
-    public function index()
-    {
 
-        $meetings = Meeting::all();
-        $members = Member::all();
-        Log::debug($members);
-        return view("backend.test", ["meetings" => $meetings, "members" => $members]);
-    }
-
-    // Read
-    public function get()
+    public function get(Request $request)
     {
-        $meetings = Meeting::all();
-        return view("backend.test", ["meetings" => $meetings]);
+        $data = $request->all();
+        $result = DB::table('meetings')
+            ->where('title', 'like', '%' . $data['search']['value'] . '%')
+            ->orderBy('title')
+            ->skip($data['start'])
+            ->take($data['length'])
+            ->get();
+
+        $filtered = DB::table('meetings')
+            ->where('title', 'like', '%' . $data['search']['value'] . '%')
+            ->count();
+        $returnData = collect(["draw" => $data['draw'], "recordsTotal" => DB::table('meetings')->count(), "recordsFiltered" => $filtered]);
+        $arr = collect([]);
+        foreach ($result as $res) {
+            $qr_path = asset('storage/qrcode/'.$res->id.'.svg');
+
+            if(!Storage::disk('public')->exists('qrcode/'.$res->id.'.svg'))
+            {
+                Storage::disk('public')->makeDirectory('qrcode');
+                QrCode::format('svg')->generate(route('attendance.create',['meetingId'=>$res->id]),storage_path('app/public').'/qrcode/'.$res->id.'.svg');
+
+            }
+            $option = '
+            <button class="bg-black rounded text-white text-sm font-semibold uppercase p-2"><i class="fa-solid fa-pen"></i> Modify</button>
+            <button class="bg-red rounded text-white text-sm font-semibold uppercase p-2" onclick = "deleteConfirm(' . $res->id . ')"><i class="fa-regular fa-circle-xmark"></i> Delete</button>
+            <button class="bg-red rounded text-white text-sm font-semibold uppercase p-2" onclick = "showQR(\''.$qr_path.'\')"><i class="fa-regular fa-circle-xmark"></i> Show QR</button>';
+
+            $arr->push([
+                Carbon::parse($res->date)->format('d-m-Y'),
+                $option,
+            ]);
+        }
+
+        $returnData->put('data', $arr);
+        return response()->json($returnData);
+
     }
 
     public function getById($id)
@@ -154,5 +182,10 @@ class MeetingController extends Controller
     {
         Attendance::destroy($attendanceId);
         return $this->index();
+    }
+
+    public function index()
+    {
+        return view('backend.meetings.index');
     }
 }
