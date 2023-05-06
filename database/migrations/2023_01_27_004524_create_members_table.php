@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('email');
-            $table->softDeletes();
             // indexes
             $table->unique('email');
         });
