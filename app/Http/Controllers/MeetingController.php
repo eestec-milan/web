@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\MessageBag;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MeetingController extends Controller
@@ -188,4 +190,36 @@ class MeetingController extends Controller
     {
         return view('backend.meetings.index');
     }
+
+    public function createAttendance($meetingId)
+    {
+        return view('backend.meetings.attendance',['meetingId'=>$meetingId]);
+    }
+
+    public function storeAttendance(Request $request)
+    {
+        $meeting = $request["meetingId"];
+        $email = $request["email"];
+
+        Validator::make($request->all(), [
+            'email' => 'required|exists:members,email',
+            'meetingId' => 'required|exists:meetings,id',
+        ])->validate();
+
+        $now = Carbon::now()->format('Y-m-d');
+        $meetingDate = Meeting::find($meeting)->whereDate('date', $now);
+
+        if($meetingDate->count()!=0)
+        {
+            $attendance = new Attendance();
+            $attendance->meetingId = $meeting;
+            $attendance->memberId = Member::where('email', $email)->first()->id;
+            $attendance->save();
+            
+            return view('backend.meetings.attendance', ['meetingId' => $meeting])->with('success', new MessageBag(['The attendance has been registered']));
+        }
+            else
+            return view('backend.meetings.attendance',['meetingId'=>$meeting])->with('errors', new MessageBag(['The attendance form for this meeting has expired']));
+
+        }
 }

@@ -27,6 +27,7 @@ Route::get('/events', [EventsController::class, 'index'])->name('events');
 // Meetings
 Route::post('/meetings/save', [MeetingController::class, 'save'])->name('saveMeeting');
 Route::get('/meetings/attendance/create/{meetingId}', [MeetingController::class, 'createAttendance'])->name('attendance.create');
+Route::post('/meetings/attendance/create/{meetingId}', [MeetingController::class, 'storeAttendance']);
 Route::post('/meetings/addAttendance', [MeetingController::class, 'addAttendance'])->name('saveAttendace');
 Route::get('/meetings', [MeetingController::class, 'index'])->name('meetings');
 Route::post('/meetings', [MeetingController::class, 'get'])->name('dashboard.admin.meetings');
