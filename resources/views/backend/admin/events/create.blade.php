@@ -18,6 +18,12 @@
                     </ul>
                 </div>
             @endif
+            <div class="bg-blue-600 text-white mb-6 rounded-lg p-5">
+                <i class="fa-solid fa-circle-info"></i><span class="font-bold"> INFO</span>
+                <li class="list-disc ml-5">
+                    Image format: 1080x720, max: 512KB
+                </li>
+            </div>
             <form action = "{{route('event.create')}}" method="POST" class="pl-4 w-full" enctype="multipart/form-data">
                 @csrf
                 <div class="md:flex md:justify-items-start mb-6">
@@ -67,7 +73,7 @@
                         </label>
                     </div>
                     <div class="md:w-full">
-                        <input type = "file" name = "event_image" class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" placeholder="(1080x720, max:512KB)">
+                        <input type = "file" name = "event_image" class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
                     </div>
                 </div>
                 <div class="flex justify-end">
