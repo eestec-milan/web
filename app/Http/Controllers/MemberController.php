@@ -5,15 +5,42 @@ namespace App\Http\Controllers;
 use App\Models\Meeting;
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
 {
     // Read
-    public function get()
+    public function get(Request $request)
     {
-        $members = Member::all();
-        return view("backend.test", ["members" => $members]);
+        $data = $request->all();
+        $result = DB::table('members')
+            ->where('name', 'like', '%' . $data['search']['value'] . '%')
+            ->orderBy('name')
+            ->skip($data['start'])
+            ->take($data['length'])
+            ->get();
+
+        $filtered = DB::table('members')
+            ->where('name', 'like', '%' . $data['search']['value'] . '%')
+            ->count();
+        $returnData = collect(["draw" => $data['draw'], "recordsTotal" => DB::table('members')->count(), "recordsFiltered" => $filtered]);
+        $arr = collect([]);
+        foreach ($result as $res) {
+            $option = '
+            <button class="bg-blue-600 rounded text-white text-sm font-semibold uppercase p-2"><i class="fa-solid fa-pen"></i> Modify</button>
+            <button class="bg-red rounded text-white text-sm font-semibold uppercase p-2" onclick = "deleteConfirm(' . $res->id . ')"><i class="fa-regular fa-circle-xmark"></i> Delete</button>';
+
+            $arr->push([
+                $res->name,
+                $res->email,
+                $option,
+            ]);
+        }
+
+        $returnData->put('data', $arr);
+        return response()->json($returnData);
     }
 
     public function getByEmail($email)
@@ -58,32 +85,28 @@ class MemberController extends Controller
     public function save(Request $request)
     {
 
-        $name = $request["name"];
+        $name = $request["firstname"];
         $email = $request["email"];
-        $surname = $request["surname"];
+        $surname = $request["lastname"];
 
-        $validated = $request->validate([
+        Validator::make($request->all(),[
             'email' => 'required|unique:members|email',
-            'name' => 'required',
-            'surname' => 'required',
-        ]);
-        if ($validated) {
+            'firstname' => 'required',
+            'lastname' => 'required',
+        ])->validate();
 
-            $member = new Member();
+        $member = new Member();
 
-            $member->name = $name;
-            $member->surname = $surname;
-            $member->email = $email;
+        $member->name = $name;
+        $member->surname = $surname;
+        $member->email = $email;
 
-            $member->save();
-            Log::alert($name);
-            Log::alert($email);
-            Log::alert($surname);
+        $member->save();
+        Log::alert($name);
+        Log::alert($email);
+        Log::alert($surname);
 
-            return view("backend.test");
-        } else {
-            abort(422);
-        }
+        return view("backend.members.create");
     }
 
 
@@ -113,6 +136,23 @@ class MemberController extends Controller
     public function delete($memberId)
     {
         Member::destroy($memberId);
-        return $this->get();
+        return response()->json("success");
+    }
+
+    public function create()
+    {
+
+        return view('backend.members.create');
+    }
+
+    public function index()
+    {
+
+        return view('backend.members.index');
+    }
+
+    public function registration(){
+
+
     }
 }

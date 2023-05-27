@@ -17,10 +17,10 @@
             <div class="relative w-full">
                 <label class="relative block">
                     <input
-                        class="w-full bg-white placeholder:font-italitc border-0 drop-shadow-md rounded-r-md py-2 search-event pl-3 pr-10 focus:border-0 focus:ring-0"
-                        placeholder="Search..." type="text" />
+                            class="w-full bg-white placeholder:font-italitc border-0 drop-shadow-md rounded-r-md py-2 search-event pl-3 pr-10 focus:border-0 focus:ring-0"
+                            placeholder="Search..." type="text" />
                     <button class="absolute inset-y-0 right-0 flex items-center px-3 bg-red rounded-r-md">
-                         <svg class="h-5 w-5 fill-black" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                        <svg class="h-5 w-5 fill-black" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
                             <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z">
                             </path>
                         </svg>
@@ -35,17 +35,17 @@
     <div class="grid grid-cols-3 mx-12 md:mx-32 md:my-12 md:pb-16" id="events-gallery">
 
         @foreach($events as $event)
-        <div class="event-card mx-4 cursor-pointer pb-6 md:pb-0" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->description}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}','{{$event->register_link != null ? $event->register_link : ""}}')">
-            <div class="max-w-md md:max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
-                <img class="object-cover rounded-lg rounded-b-none" src="{{$event->image}}" alt="" />
-                <div class="flex justify-between p-3">
-                    <div class="w-2/5 text-center font-bold p-2 align-middle"><p class="text-red font-bold text-sm md:text-lg event-year">{{\Carbon\Carbon::parse($event->date)->translatedFormat('Y')}}</p>
-                        <p class="text-xs md:text-sm text-white">{{\Carbon\Carbon::parse($event->date)->translatedFormat('d M')}}</p></div>
-                    <div class="w-3/5 text-left text-white p-1 md:p-2 align-middle md:mt-1"><p><span class="font-bold event-name">{{$event->name}}</span></p>
-                        <p class="text-xs md:mt-1 text-gray">{{$event->location}}</p></div>
+            <div class="event-card mx-4 cursor-pointer pb-6 md:pb-0" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->description}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}','{{$event->register_link != null ? $event->register_link : ""}}')">
+                <div class="max-w-md md:max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
+                    <img class="object-cover rounded-lg rounded-b-none" src="{{$event->image}}" alt="" />
+                    <div class="flex justify-between p-3">
+                        <div class="w-2/5 text-center font-bold p-2 align-middle"><p class="text-red font-bold text-sm md:text-lg event-year">{{\Carbon\Carbon::parse($event->date)->translatedFormat('Y')}}</p>
+                            <p class="text-xs md:text-sm text-white">{{\Carbon\Carbon::parse($event->date)->translatedFormat('d M')}}</p></div>
+                        <div class="w-3/5 text-left text-white p-1 md:p-2 align-middle md:mt-1"><p><span class="font-bold event-name">{{$event->name}}</span></p>
+                            <p class="text-xs md:mt-1 text-gray">{{$event->location}}</p></div>
+                    </div>
                 </div>
             </div>
-        </div>
         @endforeach
 
         <div class="p-5">
@@ -95,56 +95,45 @@
 
 @section('extra-scripts')
     <script
-        src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-        crossorigin="anonymous"></script>
-<script src="{{asset("assets/js/shufflejs/dist/shuffle.js")}}"></script>
-<script>
-
-    let shuffleInstance;
-    const Shuffle = window.Shuffle; // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).        $(document).ready(function() {
-    $(document).ready(function() {
-    $(".search-event").val('');
-    const element = document.getElementById('events-gallery');
-
-    shuffleInstance = new Shuffle(element, {
-        itemSelector: '.event-card',
-        speed: 500
-    });
-
-    });
-    document.querySelector('.search-event').addEventListener('keyup', handleSearchKeyup);
-    document.querySelector('.search-year').addEventListener('change', handleSearchYear);
-
-    function handleSearchYear(event){
-        const searchYear = event.target.value;
-
-        shuffleInstance.filter((element, shuffle) => {
-            const titleElement = element.querySelector('.event-year');
-            const titleText = titleElement.textContent;
-
-            if(searchYear == 0)
-                return true;
-
-            return titleText.includes(searchYear);
+            src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+            crossorigin="anonymous"></script>
+    <script src="{{asset("assets/js/shufflejs/dist/shuffle.js")}}"></script>
+    <script>
+        let shuffleInstance;
+        const Shuffle = window.Shuffle; // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).        $(document).ready(function() {
+        $(document).ready(function() {
+            $(".search-event").val('');
+            const element = document.getElementById('events-gallery');
+            shuffleInstance = new Shuffle(element, {
+                itemSelector: '.event-card',
+                speed: 500
+            });
         });
-    }
-
-    function handleSearchKeyup(event) {
-        // Filter the shuffle instance by items with a title that matches the search input.        function handleSearchKeyup(event) {
-        const searchText = event.target.value.toLowerCase();
-
-        shuffleInstance.filter((element, shuffle) => {
-            const titleElement = element.querySelector('.event-name');
-            const titleText = titleElement.textContent.toLowerCase().trim();
-
-            return titleText.includes(searchText);
-        });
-    }
-</script>
+        document.querySelector('.search-event').addEventListener('keyup', handleSearchKeyup);
+        document.querySelector('.search-year').addEventListener('change', handleSearchYear);
+        function handleSearchYear(event){
+            const searchYear = event.target.value;
+            shuffleInstance.filter((element, shuffle) => {
+                const titleElement = element.querySelector('.event-year');
+                const titleText = titleElement.textContent;
+                if(searchYear == 0)
+                    return true;
+                return titleText.includes(searchYear);
+            });
+        }
+        function handleSearchKeyup(event) {
+            // Filter the shuffle instance by items with a title that matches the search input.        function handleSearchKeyup(event) {
+            const searchText = event.target.value.toLowerCase();
+            shuffleInstance.filter((element, shuffle) => {
+                const titleElement = element.querySelector('.event-name');
+                const titleText = titleElement.textContent.toLowerCase().trim();
+                return titleText.includes(searchText);
+            });
+        }
+    </script>
 
     <script type="text/javascript">
-
         function toggleModal(id,description,date,link){
             $("#modal-event-title").text($('#event-'+id + ' .event-name').text());
             $("#modal-event-description").html(description);
@@ -158,29 +147,22 @@
             }
             else
                 $("#modal-link").removeClass("cursor-not-allowed bg-gray-500 focus:outline-none opacity-50");
-
             $("body").addClass('overflow-y-hidden');
-
             $("#modal-id").fadeIn();
             $("#modal-id-backdrop").fadeIn();
-
         }
-
-       window.addEventListener('click', function(e) {
-
+        window.addEventListener('click', function(e) {
             if ($(e.target).attr('id') == "modal-id"){
                 $("body").removeClass('overflow-y-hidden');
                 $("#modal-id").fadeOut();
                 $("#modal-id-backdrop").fadeOut();
             }
         });
-
         @if(isset($show_event_id))
         $( document ).ready(function() {
             $("#event-"+{{$show_event_id}}).click();
         });
         @endif
-
     </script>
 
 

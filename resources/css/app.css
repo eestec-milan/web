@@ -19,6 +19,14 @@
         @apply cursor-not-allowed bg-gray-500 focus:outline-none opacity-60
     }
 
+    .paginate_button {
+        @apply bg-red px-4 py-2 mx-1 text-white font-semibold rounded-lg cursor-pointer hover:bg-red-light
+    }
+
+    .dataTable{
+        @apply p-4 m-0 w-full text-left border-separate border-spacing-x-0 border-spacing-y-2
+    }
+
     .dataTables_info{
         @apply p-2 text-center
     }

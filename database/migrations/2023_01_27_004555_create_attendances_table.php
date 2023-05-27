@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->string("memberId")->foreign('memberId')->references('id')->on('members');
             $table->string("meetingId")->foreign('meetingId')->references('id')->on('meetings');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
