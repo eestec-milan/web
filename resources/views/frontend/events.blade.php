@@ -36,7 +36,7 @@
 
         @foreach($events as $event)
         <div class="event-card mx-4 cursor-pointer pb-6 md:pb-0" id="event-{{$event->id}}" onclick="toggleModal({{$event->id}},'{{$event->description}}','{{strtoupper(\Carbon\Carbon::parse($event->date)->translatedFormat('D M d, h:i A'))}}','{{$event->register_link != null ? $event->register_link : ""}}')">
-            <div class="max-w-md md:max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
+            <div class="max-w-md md:max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow md:my-6">
                 <img class="object-cover rounded-lg rounded-b-none" src="{{$event->image}}" alt="" />
                 <div class="flex justify-between p-3">
                     <div class="w-2/5 text-center font-bold p-2 align-middle"><p class="text-red font-bold text-sm md:text-lg event-year">{{\Carbon\Carbon::parse($event->date)->translatedFormat('Y')}}</p>

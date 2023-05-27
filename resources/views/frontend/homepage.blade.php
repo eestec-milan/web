@@ -50,7 +50,7 @@ Homepage
                 @foreach($events as $event)
                     <a href="{{route('events')}}?event={{$event->id}}">
                         <div class="event-card pb-6 md:pb-0 mx-4 cursor-pointer" id="event-{{$event->id}}">
-                            <div class="max-w-md md:max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow dark:bg-gray-dark dark:border-gray-dark md:my-6">
+                            <div class="max-w-md md:max-w-sm justify-center bg-gray-dark border border-gray-dark rounded-lg shadow md:my-6">
                                 <img class="object-cover rounded-lg rounded-b-none" src="{{$event->image}}" alt="" />
                                 <div class="flex justify-between p-3">
                                     <div class="w-2/5 text-center font-bold p-2 align-middle"><p class="text-red font-bold text-sm md:text-lg event-year">{{\Carbon\Carbon::parse($event->date)->translatedFormat('Y')}}</p>

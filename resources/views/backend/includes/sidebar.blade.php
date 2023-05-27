@@ -2,7 +2,7 @@
 
     <div class="fixed top-0 left-0 w-1/5 bg-white h-screen border-r">
             <a class="flex items-center md:p-10 md:text-3xl font-bold leading-none justify-center h-14 border-b" href="#">
-                <img class="w-24 md:w-40" src="{{asset('assets/frontend/images/mesa-logo.svg')}}">
+                <img class="w-24 md:w-40" src="{{asset('assets/images/mesa-logo.svg')}}">
             </a>
         <div class="overflow-y-auto overflow-x-hidden flex-grow">
             <ul class="flex flex-col py-4 space-y-1">

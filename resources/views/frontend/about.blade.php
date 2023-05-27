@@ -72,7 +72,7 @@ About us
 
     <form class="bg-gray-dark md:px-24 px-8 md:py-12 py-10 mb-16 rounded-2xl mx-auto md:w-1/2">
         <div class="mb-6">
-            <!--<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>-->
+            <!--<label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>-->
             <input type="email" id="email" class="shadow-sm border text-gray-900 text-sm rounded-lg focus:ring-0 block w-full p-3" placeholder="Email" required>
         </div>
         <div class="mb-6">

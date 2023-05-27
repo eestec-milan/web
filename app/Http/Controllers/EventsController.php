@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\MessageBag;
 
 class EventsController extends Controller
 {
@@ -112,6 +113,7 @@ class EventsController extends Controller
             'events'=>Event::orderBy('date', 'desc')->take(3)->get(),
             'years'=>$years
         ]);
+
     }
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
 
@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="bg-white dark:bg-black">
+<body class="bg-gray-50">
 
 <!-- ***** Preloader Start ***** -->
 <div id="js-preloader" class="js-preloader">

@@ -14,7 +14,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
             <h2 class="text-base p-8 pt-6 md:text-4xl md:pt-10 mb-4 font-bold">
                 MEETINGS
             </h2>
-            <button class="bg-black rounded text-white text-sm font-semibold uppercase p-2"><i class="fa-solid fa-plus"></i>Add</button>
+            <a href="{{route('meetings.create')}}" class="bg-green-600 rounded text-white text-sm font-semibold uppercase p-2 ml-8"><i class="fa-solid fa-plus"></i> Add</a>
             <table id="myTable">
                     <thead>
                     <tr>
@@ -44,7 +44,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '{{route('dashboard.admin.meetings')}}',
+                    url: '{{route('meetings')}}',
                     type: 'POST'
                 }
             } );
@@ -61,7 +61,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: '{{route('dashboard.admin.meetings')}}/' + id,
+                        url: '{{route('meetings')}}/' + id,
                         type: "DELETE",
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

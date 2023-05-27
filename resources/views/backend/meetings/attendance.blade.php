@@ -1,11 +1,11 @@
 @extends('backend.layout_noside')
 
 @section('content')
-    <div class="max-w-md w-full mx-auto">
+    <div class="max-w-lg w-full mx-auto mt-52">
         <div class="bg-white shadow-md rounded px-8 py-6">
-            <h2 class="text-2xl font-bold mb-6">Attendance Form</h2>
+            <h2 class="text-2xl font-bold mb-6">Attendance Form for {{\Carbon\Carbon::parse($meeting->date)->format('d-m-Y')}} general meeting</h2>
             @if($errors->any())
-                <div class="bg-red text-white mb-6 rounded-sm">
+                <div class="bg-red text-white mb-6 rounded-lg p-5">
                     <i class="fa-solid fa-circle-exclamation"></i><span class="font-bold"> ERRORS</span>
                     <ul>
 
@@ -16,7 +16,7 @@
                 </div>
             @endif
             @if(isset($success))
-                <div class="bg-green-600 text-white mb-6 rounded-sm">
+                <div class="bg-green-600 text-white mb-6 rounded-lg p-5">
                     <i class="fa-solid fa-circle-exclamation"></i><span class="font-bold"> SUCCESS</span>
                     <ul>
 
