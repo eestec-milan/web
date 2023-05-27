@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventRequest;
 use App\Models\Event;
+use App\Models\Member;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class EventsController extends Controller
 {
@@ -27,82 +30,118 @@ class EventsController extends Controller
         return $event;
     }
 
+    public function get(Request $request)
+    {
+        $data = $request->all();
+        $result = DB::table('events')
+            ->where('name', 'like', '%' . $data['search']['value'] . '%')
+            ->orderBy('name')
+            ->skip($data['start'])
+            ->take($data['length'])
+            ->get();
+
+        $filtered = DB::table('events')
+            ->where('name', 'like', '%' . $data['search']['value'] . '%')
+            ->count();
+        $returnData = collect(["draw" => $data['draw'], "recordsTotal" => DB::table('events')->count(), "recordsFiltered" => $filtered]);
+        $arr = collect([]);
+        foreach ($result as $res) {
+            $option = '
+            <button class="bg-blue-600 rounded text-white text-sm font-semibold uppercase p-2"><i class="fa-solid fa-pen"></i> Modify</button>
+            <button class="bg-red rounded text-white text-sm font-semibold uppercase p-2" onclick = "deleteConfirm(' . $res->id . ')"><i class="fa-regular fa-circle-xmark"></i> Delete</button>';
+
+            $arr->push([
+                $res->name,
+                $res->date,
+                $option,
+            ]);
+        }
+
+        $returnData->put('data', $arr);
+        return response()->json($returnData);
+    }
+
 // Create
     function store(EventRequest $request)
     {
 
-
         $validated = $request->validated();
-        $imgFile = $request->file("imgFile");
-        if (is_null($imgFile)) {
-            return response("not valid", 422);
-        }
+        $imgFile = $request->file("event_image");
+
         $event = new Event();
         $event = $this->buildEvent($event, $validated, $imgFile);
         $event->save();
 
-        return $event;
+        return view('backend.admin.events.create');
     }
 
 // Update
-    function update(EventRequest $request,$id )
+
+    public function save(Request $request)
     {
-        Log::debug("Update");
-        $validated = $request->validated();
-        if(count($validated) < 4){
-            abort(422);
-        }
-        $imgFile = $request->file("imgFile");
-        $event = Event::where('id', $id)->first();
-        if (is_null($event)) {
-            return abort(404);
-        }
-        $event = $this->buildEvent($event, $validated, $imgFile);
 
-        $event->update();
+        $name = $request["name"];
+        $date = $request["date"];
 
-        return $event;
+        Validator::make($request->all(),[
+            'name' => 'required|unique:name|date',
+            'date' => 'required',
+        ])->validate();
+
+        $event = new Event();
+
+        $event->name = $name;
+        $event->date = $date;
+
+        $event->save();
+        Log::alert($name);
+        Log::alert($date);
+
+        return view("backend.admin.events.create");
     }
-
-// Read
-    function getById(int $id)
-    {
-        $event = Event::find($id);
-        if (is_null($event)) {
-            abort(404);
-        }
-
-        return $event;
-    }
-
-    function getAll()
-    {
-        $events = Event::get();
-        if (count($events) === 0) {
-            abort(404);
-        }
-        return $events;
-    }
-
 
     // Delete
-
-    function  delete($id){
+    public function delete($id)
+    {
         Event::destroy($id);
-        return response(null, 204);
+        return response()->json("success");
+    }
+
+    public function create()
+    {
+
+        return view('backend.admin.events.create');
     }
 
     public function index()
     {
-        $years = DB::table('meetings')
+
+        return view('backend.admin.events.index');
+    }
+
+    public function showAll(Request $request)
+    {
+        $years = DB::table('events')
             ->select(DB::raw('YEAR(date) as year'))
             ->distinct()
             ->orderBy('year', 'desc')
             ->get();
+
+        if($request->has("event"))
+            return view('frontend.events',[
+                'events'=>Event::orderBy('date', 'desc')->take(3)->get(),
+                'years'=>$years,
+                'show_event_id'=>$request->query("event")
+            ]);
+
         return view('frontend.events',[
-            'events'=>Meeting::all(),
+            'events'=>Event::orderBy('date', 'desc')->take(3)->get(),
             'years'=>$years
         ]);
     }
 
+    public function registration(){
+
+
+    }
 }

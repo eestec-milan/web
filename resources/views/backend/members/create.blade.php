@@ -8,7 +8,7 @@
                 ADD NEW MEMBER
             </h3>
             @if($errors->any())
-                <div class="bg-red text-white mb-6 rounded-sm">
+                <div class="bg-red text-white mb-6 rounded-lg p-5">
                     <i class="fa-solid fa-circle-exclamation"></i><span class="font-bold"> ERRORS</span>
                     <ul>
 

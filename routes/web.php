@@ -21,8 +21,9 @@ use App\Http\Controllers\MemberController;
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 //Route::get('/test', [MeetingController::class, 'index'])->name('test');
+Route::get('/events', [EventsController::class, 'showAll'])->name('events');
 
-Route::get('/events', [EventsController::class, 'index'])->name('events');
+Route::get('/admin/events', [EventsController::class, 'index'])->name('admin.events');
 
 // Meetings
 Route::post('/meetings/save', [MeetingController::class, 'save'])->name('saveMeeting');
@@ -31,7 +32,7 @@ Route::get('/meetings', [MeetingController::class, 'get'])->name('getMeetings');
 Route::get('/meetings/{meetingId}', [MeetingController::class, 'getMeetingAttendances'])->name('getMeetingAttendances');
 Route::put('/meetings/update', [MeetingController::class, 'update'])->name('updateMeeting');
 Route::delete('/meetings/{meetingId}', [MeetingController::class, 'delete'])->name('deleteMeeting');
-Route::delete('/meetings/attendancces/{attendanceId}', [MeetingController::class, 'deleteAttendance'])
+Route::delete('/meetings/attendances/{attendanceId}', [MeetingController::class, 'deleteAttendance'])
     ->name('deleteAttendance');
 
 // Members
@@ -46,6 +47,14 @@ Route::get('/members/email/{email}', [MemberController::class, 'getByEmail'])->n
 Route::put('/members/update', [MemberController::class, 'update'])->name('updateMember');
 Route::get('/members/{meetingId}', [MeetingController::class, 'getById'])->name('getMeetingIdById');
 Route::delete('/members/{memberId}', [MemberController::class, 'delete'])->name('member.delete');
+
+//Events
+Route::post('/admin/events/create', [EventsController::class, 'store']);
+Route::get('/admin/events/create', [EventsController::class, 'create'])->name('event.create');
+Route::post('/admin/events', [EventsController::class, 'get'])->name('admin.events');
+//Route::post('/admin/events/create', [EventsController::class, 'save']);
+Route::delete('/admin/events/{id}', [EventsController::class, 'delete'])->name('event.delete');
+Route::get('/admin/events', [EventsController::class, 'index'])->name('event.index');
 
 
 
