@@ -3,8 +3,9 @@ const colors =     require('tailwindcss/colors');
 
 module.exports = {
     content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js"
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        "./resources/**/*.blade.php"
     ],
     safelist:[
         'paginate_button',
@@ -20,30 +21,30 @@ module.exports = {
         'sorting_disabled',
         'bg-blue-600'
     ],
-darkMode: 'class',
-  theme: {
-    colors: {
-        'red': '#E52A30',
-        'red-light': '#E64E53',
-        'black':'#161616',
-        'gray-dark': '#1f2122',
-        'gray-light': '#ececec',
-        'white':'#ffffff',
-        gray: colors.gray,
-        slate: colors.slate,
-        green: colors.emerald,
-        blue: colors.blue,
-        purple: colors.violet,
-        yellow: colors.amber,
-        pink: colors.fuchsia,
+    darkMode: 'class',
+    theme: {
+        colors: {
+            'red': '#E52A30',
+            'red-light': '#E64E53',
+            'black':'#161616',
+            'gray-dark': '#1f2122',
+            'gray-light': '#ececec',
+            'white':'#ffffff',
+            gray: colors.gray,
+            slate: colors.slate,
+            green: colors.emerald,
+            blue: colors.blue,
+            purple: colors.violet,
+            yellow: colors.amber,
+            pink: colors.fuchsia,
 
+        },
+        fontFamily: {
+            sans: ['Inter', 'sans-serif']
+        }
     },
-      fontFamily: {
-          sans: ['Inter', 'sans-serif']
-      },
-  },
-  plugins: [
-      require('@tailwindcss/typography'),
-      require('@tailwindcss/forms')
-  ],
+    plugins: [
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/forms')
+    ],
 }
