@@ -15,12 +15,15 @@
             <table id="myTable">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
+                        <th class="w-1/3">Full name</th>
+                        <th >Attendences out of {{$meetingCount}}</th>
+                        <th >Consecutive absences</th>
+                        <th class="w-1/3">Action</th>
                     </tr>
                     </thead>
                 </table>
+
+
         </div>
     </div>
 @endsection
@@ -28,6 +31,7 @@
 @section('extra-scripts')
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
+
         $(document).ready( function () {
             $('#myTable').DataTable( {
                 serverSide: true,
@@ -44,6 +48,19 @@
                     },
                     url: '{{route('dashboard.admin.users')}}',
                     type: 'POST'
+                },
+                "initComplete": function(settings, json) {
+                    var dropdownButtons = document.getElementsByClassName('dropdown-button');
+                    var dropdownMenus = document.getElementsByClassName('dropdown-menu');
+
+                    Array.from(dropdownButtons).forEach(function(button, index) {
+                        button.addEventListener('click', function() {
+                            var menu = dropdownMenus[index];
+                            var expanded = this.getAttribute('aria-expanded');
+                            this.setAttribute('aria-expanded', expanded === 'true' ? 'false' : 'true');
+                            menu.classList.toggle('hidden');
+                        });
+                    });
                 }
             } );
         });
