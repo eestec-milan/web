@@ -16,26 +16,26 @@ Homepage
             </h1>
         </div>
 
-        <div class="flex justify-center mt-14 md:mx-40 ml:mx-60">
-                <div class="grid grid-cols-1 grid-rows-2 gap-y-5">
-                    <div class="grid grid-cols-12 gap-5">
-                        <img src="{{asset("assets/images/people/img1.jpg")}}" class="object-center object-cover h-full col-start-1 col-end-5 rounded-lg">
-                        <img src="{{asset("assets/images/people/img2.jpg")}}" class="object-center object-cover h-full col-start-5 col-end-10 rounded-lg">
-                        <img src="{{asset("assets/images/people/img3.jpg")}}" class="object-center object-cover h-full col-start-10 col-end-13 rounded-lg">
-                    </div>
-                    <div class="grid grid-cols-12 gap-5">
-                        <img src="{{asset("assets/images/people/img4.jpg")}}" class="object-center object-cover h-full col-start-1 col-end-4 rounded-lg">
-                        <img src="{{asset("assets/images/people/img5.jpg")}}" class="object-center object-cover h-full col-start-4 col-end-8 rounded-lg">
-                        <img src="{{asset("assets/images/people/img6.jpg")}}" class="object-center object-cover h-full col-start-8 col-end-13 rounded-lg">
-                    </div>
+        <div class="flex justify-center mt-14 md:mx-10 lg:mx-30 xl:mx-40 md:h-screen">
+            <div class="md:grid md:grid-rows-2 md:gap-y-5">
+                <div class="md:grid md:grid-cols-12 md:gap-5">
+                    <img src="{{asset("assets/images/people/img1.jpg")}}" class="object-cover mb-5 md:h-full h-56 w-full col-start-1 col-end-5 rounded-lg">
+                    <img src="{{asset("assets/images/people/img2.jpg")}}" class="object-cover mb-5 md:h-full h-56 w-full col-start-5 col-end-10 rounded-lg">
+                    <img src="{{asset("assets/images/people/img3.jpg")}}" class="object-cover mb-5 md:h-full h-56 w-full col-start-10 col-end-13 rounded-lg">
                 </div>
+                <div class="md:grid md:grid-cols-12 md:gap-5">
+                    <img src="{{asset("assets/images/people/img4.jpg")}}" class="object-cover mb-5 md:h-full h-56 w-full col-start-1 col-end-4 rounded-lg">
+                    <img src="{{asset("assets/images/people/img5.jpg")}}" class="object-cover mb-5 md:h-full h-56 w-full col-start-4 col-end-8 rounded-lg">
+                    <img src="{{asset("assets/images/people/img6.jpg")}}" class="object-cover mb-5 md:h-full h-56 w-full col-start-8 col-end-13 rounded-lg">
+                </div>
+            </div>
         </div>
 
         <div class="flex flex-col justify-center text-white p-6 md:my-10">
 
             <div class="pt-6 pb-20 md:pt-10">
                 <h1 class="text-center md:-4xl font-bold">ABOUT US</h1>
-                <p class="text-lg text-s md:text-lg text-center p-3 md:px-8 md:mt-5 md:mx-40"><span class="font-bold text-red">MESA</span> - Milan Engineering Student Association - is a non-profit and apolitical organization
+                <p class="text-lg text-s md:text-lg text-center p-3 md:px-8 md:mt-5 lg:mx-40"><span class="font-bold text-red">MESA</span> - Milan Engineering Student Association - is a non-profit and apolitical organization
                     with almost 100 active members and more than 1000 passive members, from all of the engineering faculties at Politecnico di Milano. <br><a href="{{route('about')}}" class="link text-lg" >Check out more ...</a></p>
 
             </div>
