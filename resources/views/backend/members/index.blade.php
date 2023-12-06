@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <div class="flex w-4/5 justify-right mx-20 ml-96 items-center h-1/2">
+    <div class="flex w-4/5 justify-right mx-20 ml-96 my-40 items-center h-1/2">
         <div class="bg-white p-6 mx-20 my-32 rounded-md w-full">
             <h2 class="text-base p-8 pt-6 md:text-4xl md:pt-10 font-bold">
                 MEMBERS <br>
@@ -42,7 +42,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '{{route('dashboard.admin.users')}}',
+                    url: '{{route('dashboard.users')}}',
                     type: 'POST'
                 }
             } );
@@ -59,7 +59,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: '{{route('dashboard.admin.users')}}/' + id,
+                        url: '{{route('dashboard.users')}}/' + id,
                         type: "DELETE",
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

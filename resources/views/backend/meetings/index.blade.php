@@ -3,13 +3,10 @@
 
 @section('extra-css')
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
-    <link href="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
-" rel="stylesheet">
 @endsection
 
 @section('content')
-    <div class="flex w-4/5 justify-right mx-20 ml-96 items-center h-1/2">
+    <div class="flex w-4/5 justify-right mx-20 ml-96 my-40 items-center h-1/2">
         <div class="bg-white p-6 mx-20 my-32 rounded-md w-full">
             <h2 class="text-base p-8 pt-6 md:text-4xl md:pt-10 mb-4 font-bold">
                 MEETINGS

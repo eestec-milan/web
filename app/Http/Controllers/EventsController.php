@@ -71,7 +71,7 @@ class EventsController extends Controller
         $event = $this->buildEvent($event, $validated, $imgFile);
         $event->save();
 
-        return view('backend.admin.events.create');
+        return view('backend.events.create');
     }
 
 // Update
@@ -96,7 +96,7 @@ class EventsController extends Controller
         Log::alert($name);
         Log::alert($date);
 
-        return view("backend.admin.events.create");
+        return view("backend.events.create");
     }
 
     // Delete
@@ -109,13 +109,13 @@ class EventsController extends Controller
     public function create()
     {
 
-        return view('backend.admin.events.create');
+        return view('backend.events.create');
     }
 
     public function index(Request $request)
     {
 
-        return view('backend.admin.events.index');
+        return view('backend.events.index');
     }
 
     public function showAll(Request $request)

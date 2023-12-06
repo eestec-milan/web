@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title')</title>
@@ -20,7 +20,7 @@
 
     </head>
 
-    <body class="bg-white dark:bg-black">
+    <body class="bg-white dark:bg-gray-50 h-screen w-screen">
 
     <!-- ***** Preloader Start ***** -->
         <div id="js-preloader" class="js-preloader">
@@ -37,16 +37,16 @@
 
         <!-- ***** Header Area Start ***** -->
 
-    <div class="flex bg-gray-50 text-gray-800">
-        @include('backend.includes.sidebar')
-        <!-- ***** Header Area End ***** -->
-        @yield('content')
-    </div>
-    <script
-            src="https://code.jquery.com/jquery-3.6.4.min.js"
-            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-            crossorigin="anonymous"></script>
-        @yield('extra-scripts')
+        <div class="flex bg-gray-50 text-gray-800 h-screen w-screen">
+            @include('backend.includes.sidebar')
+            <!-- ***** Header Area End ***** -->
+            @yield('content')
+        </div>
+        <script
+                src="https://code.jquery.com/jquery-3.6.4.min.js"
+                integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+                crossorigin="anonymous"></script>
+            @yield('extra-scripts')
 
     </body>
 </html>

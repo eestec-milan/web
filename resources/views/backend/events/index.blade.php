@@ -6,13 +6,13 @@
 @endsection
 
 @section('content')
-    <div class="flex w-4/5 justify-right mx-20 ml-96 items-center h-1/2">
-        <div class="bg-white p-6 mx-20 my-32 rounded-md w-full">
+    <div class="flex-shrink w-4/5 justify-right mb-24 items-center h-1/2">
+        <div class="flex-shrink bg-white p-6 mb-32 rounded-md w-full">
             <h2 class="text-base p-8 pt-6 md:text-4xl md:pt-10 font-bold">
                 EVENTS <br>
             </h2>
             <a href="{{route('event.create')}}" class="bg-green-600 rounded text-white text-sm font-semibold uppercase p-2 ml-8"><i class="fa-solid fa-plus"></i> Add</a>
-            <table id="myTable">
+            <table id="myTable" class="flex-shrink">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -42,7 +42,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '{{route('admin.events')}}',
+                    url: '{{route('events')}}',
                     type: 'POST'
                 }
             } );
@@ -59,7 +59,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: '{{route('admin.events')}}/' + id,
+                        url: '{{route('events')}}/' + id,
                         type: "DELETE",
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
